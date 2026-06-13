@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="TERANGA propose uniquement des appartements a louer a Dubai, verifies et publies directement par notre equipe."
+    />
+    <title>TERANGA | Appartements a louer a Dubai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="top">
+      <header class="hero-stage">
+        <div class="top-row">
+          <p class="status-label" data-i18n="status_label">
+            Location exclusive d'appartements a Dubai
+          </p>
+          <div class="top-actions">
+            <span class="currency-pill">AED</span>
+            <div class="language-switch" role="group" aria-label="Language switch">
+              <button class="lang-button is-active" type="button" data-lang="fr">FR</button>
+              <button class="lang-button" type="button" data-lang="en">EN</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="brand-row">
+          <a class="brand" href="#top" aria-label="TERANGA">
+            <img class="brand-logo" src="./assets/logo-teranga.jpeg" alt="Logo TERANGA" />
+            <div class="brand-copy">
+              <strong>TERANGA</strong>
+              <small data-i18n="brand_tagline">Locations d'appartements a Dubai</small>
+            </div>
+          </a>
+
+          <a
+            class="header-whatsapp"
+            href="https://wa.me/971543338520?text=Bonjour%20TERANGA%2C%20je%20cherche%20un%20appartement%20a%20Dubai."
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="hero-copy">
+          <div class="hero-copy-text">
+            <span class="hero-pill" data-i18n="hero_pill">Catalogue prive TERANGA</span>
+            <h1 data-i18n="hero_title">Trouvez votre appartement a louer a Dubai.</h1>
+            <p class="hero-text" data-i18n="hero_text">
+              Une plateforme locative orientee vers les Africains et Senegalais avec
+              des appartements publies uniquement par notre equipe.
+            </p>
+          </div>
+
+          <div class="skyline-art" aria-hidden="true">
+            <span class="skyline-base"></span>
+            <span class="tower tower-1"></span>
+            <span class="tower tower-2"></span>
+            <span class="tower tower-3"></span>
+            <span class="tower tower-4"></span>
+            <span class="tower tower-5"></span>
+            <span class="tower tower-6"></span>
+            <span class="tower tower-7"></span>
+          </div>
+        </div>
+
+        <nav class="top-pill-nav" aria-label="Navigation principale">
+          <a class="top-pill is-active" href="#listingsSection" data-i18n="top_pill_rentals">Locations</a>
+          <a class="top-pill" href="#districtsSection" data-i18n="top_pill_areas">Quartiers</a>
+          <a class="top-pill" href="#servicesSection" data-i18n="top_pill_services">Services</a>
+        </nav>
+
+        <section class="search-card" id="processSection">
+          <div class="search-mode-row">
+            <button class="mode-button is-active" type="button" data-mode="all" data-i18n="mode_all">
+              Tous
+            </button>
+            <button class="mode-button" type="button" data-mode="furnished" data-i18n="mode_furnished">
+              Meubles
+            </button>
+            <button class="mode-button" type="button" data-mode="now" data-i18n="mode_now">
+              Disponibles
+            </button>
+          </div>
+
+          <label class="search-input-wrap" for="heroSearchInput">
+            <input
+              id="heroSearchInput"
+              type="search"
+              data-i18n-placeholder="search_placeholder"
+              placeholder="Rechercher un quartier, une zone ou un style de logement"
+            />
+            <button id="heroSearchButton" class="search-button" type="button" aria-label="Search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="6.5"></circle>
+                <path d="M16 16L21 21"></path>
+              </svg>
+            </button>
+          </label>
+
+          <div class="mini-filters">
+            <label>
+              <span data-i18n="field_neighborhood">Quartier</span>
+              <select id="neighborhoodSelect" name="neighborhood"></select>
+            </label>
+            <label>
+              <span data-i18n="field_max_budget">Budget max / mois</span>
+              <select id="maxBudgetSelect" name="maxBudget"></select>
+            </label>
+            <label>
+              <span data-i18n="field_bedrooms">Chambres</span>
+              <select id="bedroomsSelect" name="bedrooms"></select>
+            </label>
+          </div>
+        </section>
+      </header>
+
+      <main class="page-shell">
+        <section class="recent-section">
+          <div class="section-title-row">
+            <h2 data-i18n="recent_title">Recherches recentes</h2>
+            <p data-i18n="recent_text">
+              Des points d'entree rapides pour retrouver les zones les plus demandees.
+            </p>
+          </div>
+          <div id="recentSearches" class="recent-list"></div>
+        </section>
+
+        <section class="promo-banner">
+          <span class="promo-badge" data-i18n="promo_badge">Nouveau</span>
+          <h2 data-i18n="promo_title">Confiez-nous votre recherche locative</h2>
+          <p data-i18n="promo_text">
+            Nous pouvons preparer une preselection d'appartements selon votre budget,
+            vos quartiers et votre date d'arrivee.
+          </p>
+          <a
+            class="promo-button"
+            href="https://wa.me/971543338520?text=Bonjour%20TERANGA%2C%20je%20veux%20une%20preselection%20d'appartements%20a%20Dubai."
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="promo_cta"
+          >
+            Parler a TERANGA
+          </a>
+        </section>
+
+        <section class="insight-card service-highlight">
+          <div class="section-title-row">
+            <h2 data-i18n="insight_title">Pack installation TERANGA</h2>
+            <p data-i18n="insight_text">
+              Un accompagnement utile au-dela du logement pour rendre votre arrivee a Dubai plus simple.
+            </p>
+          </div>
+          <div class="service-mini-list">
+            <span data-i18n="insight_chip_1">Visa</span>
+            <span data-i18n="insight_chip_2">Banque</span>
+            <span data-i18n="insight_chip_3">Relocation</span>
+            <span data-i18n="insight_chip_4">Aeroport</span>
+          </div>
+        </section>
+
+        <div class="results-header">
+          <div class="results-copy">
+            <p class="eyebrow" data-i18n="catalog_eyebrow">Catalogue TERANGA</p>
+            <h2 data-i18n="catalog_title">Appartements a louer a Dubai</h2>
+            <p class="results-text" data-i18n="catalog_text">
+              Une presentation mobile et claire des appartements TERANGA, avec
+              prix en Dirham et contact direct.
+            </p>
+          </div>
+
+          <div class="results-controls">
+            <label>
+              <span data-i18n="sort_label">Trier par</span>
+              <select id="sortSelect" name="sort"></select>
+            </label>
+            <p id="resultsSummary" class="results-summary">Chargement...</p>
+          </div>
+        </div>
+
+        <div class="quick-row">
+          <span data-i18n="quick_label">Quartiers suivis</span>
+          <div id="quickTagRow" class="quick-tag-row"></div>
+        </div>
+
+        <section class="listings-section" id="listingsSection">
+          <div id="listingGrid" class="listing-list"></div>
+        </section>
+
+        <section class="districts-section" id="districtsSection">
+          <div class="section-title-row">
+            <h2 data-i18n="districts_title">Les zones de location les plus demandees</h2>
+            <p data-i18n="districts_text">
+              Un apercu rapide des quartiers ou nos clients regardent le plus souvent.
+            </p>
+          </div>
+
+          <div class="district-grid">
+            <article class="district-card district-card-marina">
+              <span>Dubai Marina</span>
+              <strong data-i18n="district_1_value">A partir de 9 800 AED / mois</strong>
+              <p data-i18n="district_1_text">
+                Pour les profils actifs qui veulent un quartier vivant, proche de la
+                plage et du metro.
+              </p>
+            </article>
+            <article class="district-card district-card-downtown">
+              <span>Downtown Dubai</span>
+              <strong data-i18n="district_2_value">A partir de 16 500 AED / mois</strong>
+              <p data-i18n="district_2_text">
+                Une adresse premium pour vivre au coeur du centre-ville et des
+                grandes tours iconiques.
+              </p>
+            </article>
+            <article class="district-card district-card-jvc">
+              <span>Jumeirah Village Circle</span>
+              <strong data-i18n="district_3_value">A partir de 8 900 AED / mois</strong>
+              <p data-i18n="district_3_text">
+                Un bon compromis pour les familles et les couples qui veulent plus
+                d'equilibre au quotidien.
+              </p>
+            </article>
+            <article class="district-card district-card-palm">
+              <span>Palm Jumeirah</span>
+              <strong data-i18n="district_4_value">A partir de 32 500 AED / mois</strong>
+              <p data-i18n="district_4_text">
+                Une option prestige pour une clientele qui cherche un cadre
+                residentiel exclusif et une vue mer.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="services-section" id="servicesSection">
+          <div class="section-title-row">
+            <h2 data-i18n="services_grid_title">Services pour votre installation</h2>
+            <p data-i18n="services_grid_text">
+              Nous ne faisons pas que montrer des appartements. Nous vous aidons
+              aussi a organiser votre arrivee.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <strong>01</strong>
+              <h3 data-i18n="service_1_title">Assistance visa</h3>
+              <p data-i18n="service_1_text">
+                Orientation pour comprendre les demarches de visa et preparer votre
+                installation.
+              </p>
+            </article>
+            <article class="service-card">
+              <strong>02</strong>
+              <h3 data-i18n="service_2_title">Ouverture de compte bancaire</h3>
+              <p data-i18n="service_2_text">
+                Mise en relation avec des interlocuteurs adaptes pour gagner du
+                temps a l'arrivee.
+              </p>
+            </article>
+            <article class="service-card">
+              <strong>03</strong>
+              <h3 data-i18n="service_3_title">Relocation et mise en route</h3>
+              <p data-i18n="service_3_text">
+                Aide pratique pour vos premiers jours, votre installation et vos
+                priorites sur place.
+              </p>
+            </article>
+            <article class="service-card">
+              <strong>04</strong>
+              <h3 data-i18n="service_4_title">Transport aeroport</h3>
+              <p data-i18n="service_4_text">
+                Organisation d'un transport a votre arrivee si vous souhaitez un
+                accueil plus fluide.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="contact-card" id="contactSection">
+          <p class="eyebrow" data-i18n="contact_eyebrow">Contact TERANGA</p>
+          <h2 data-i18n="contact_title">Parlez-nous de votre futur appartement a Dubai</h2>
+          <p data-i18n="contact_text">
+            Dites-nous votre budget, vos quartiers preferes et votre date d'arrivee
+            pour recevoir une selection adaptee.
+          </p>
+          <div class="contact-stack">
+            <a class="contact-pill" href="mailto:contact@teranga.ae">contact@teranga.ae</a>
+            <a class="contact-pill" href="tel:+971543338520">+971 54 333 8520</a>
+            <a
+              class="primary-button"
+              href="https://wa.me/971543338520?text=Bonjour%20TERANGA%2C%20je%20cherche%20un%20appartement%20a%20Dubai."
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>TERANGA</p>
+        <p data-i18n="footer_copy">
+          Catalogue prive d'appartements a louer a Dubai, publies et suivis par notre equipe.
+        </p>
+      </footer>
+
+      <nav class="bottom-nav" aria-label="Navigation rapide">
+        <a class="bottom-nav-item is-active" href="#top">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 11.5L12 5L20 11.5V20H14V14H10V20H4Z"></path>
+          </svg>
+          <span data-i18n="bottom_home">Accueil</span>
+        </a>
+        <a class="bottom-nav-item" href="#listingsSection">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="5.5"></circle>
+            <path d="M15 15L20 20"></path>
+          </svg>
+          <span data-i18n="bottom_properties">Locations</span>
+        </a>
+        <a class="bottom-nav-item" href="#districtsSection">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 6H19V18H5Z"></path>
+            <path d="M8 10H16"></path>
+            <path d="M8 14H16"></path>
+          </svg>
+          <span data-i18n="bottom_areas">Quartiers</span>
+        </a>
+        <a class="bottom-nav-item" href="#servicesSection">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 16L10 11L13 14L19 8"></path>
+            <path d="M19 8H14"></path>
+            <path d="M19 8V13"></path>
+          </svg>
+          <span data-i18n="bottom_services">Services</span>
+        </a>
+        <a class="bottom-nav-item" href="#contactSection">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.5"></circle>
+            <path d="M5.5 19C6.7 16.4 9 15 12 15C15 15 17.3 16.4 18.5 19"></path>
+          </svg>
+          <span data-i18n="bottom_contact">Contact</span>
+        </a>
+      </nav>
+    </div>
+
+    <div id="propertyModal" class="property-modal" hidden>
+      <div class="modal-overlay" data-close-modal="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="closeModalButton" type="button" aria-label="Fermer">
+          &times;
+        </button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
