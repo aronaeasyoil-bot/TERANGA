@@ -1,507 +1,293 @@
 const translations = {
   fr: {
     page_title: "TERANGA | Appartements a louer a Dubai",
-    status_label: "Location exclusive d'appartements a Dubai",
     brand_tagline: "Locations d'appartements a Dubai",
-    hero_pill: "Catalogue prive TERANGA",
+    menu_label: "Ouvrir le menu",
+    menu_home: "Accueil",
+    menu_apartments: "Appartements",
+    menu_services: "Services",
+    menu_contact: "Contact",
+    hero_eyebrow: "Selection privee a Dubai",
     hero_title: "Trouvez votre appartement a louer a Dubai.",
     hero_text:
-      "Une plateforme locative orientee vers les Africains et Senegalais avec des appartements publies uniquement par notre equipe.",
-    top_pill_rentals: "Locations",
-    top_pill_areas: "Quartiers",
-    top_pill_services: "Services",
-    mode_all: "Tous",
-    mode_furnished: "Meubles",
-    mode_now: "Disponibles",
-    search_placeholder: "Rechercher un quartier, une zone ou un style de logement",
-    field_neighborhood: "Quartier",
-    field_max_budget: "Budget max / mois",
-    field_bedrooms: "Chambres",
-    recent_title: "Recherches recentes",
-    recent_text: "Des points d'entree rapides pour retrouver les zones les plus demandees.",
-    promo_badge: "Nouveau",
-    promo_title: "Confiez-nous votre recherche locative",
-    promo_text:
-      "Nous pouvons preparer une preselection d'appartements selon votre budget, vos quartiers et votre date d'arrivee.",
-    promo_cta: "Parler a TERANGA",
-    insight_title: "Pack installation TERANGA",
-    insight_text:
-      "Un accompagnement utile au-dela du logement pour rendre votre arrivee a Dubai plus simple.",
-    insight_chip_1: "Visa",
-    insight_chip_2: "Banque",
-    insight_chip_3: "Relocation",
-    insight_chip_4: "Aeroport",
-    services_title: "Nous pouvons vous aider au-dela de l'appartement",
-    services_text:
-      "Visa, relocation, orientation bancaire et assistance pratique pour une installation plus simple.",
-    service_1_title: "Assistance visa",
-    service_1_text:
-      "Orientation pour comprendre les demarches de visa et preparer votre installation.",
-    service_2_title: "Ouverture de compte bancaire",
-    service_2_text:
-      "Mise en relation avec des interlocuteurs adaptes pour gagner du temps a l'arrivee.",
-    service_3_title: "Relocation et mise en route",
-    service_3_text:
-      "Aide pratique pour vos premiers jours, votre installation et vos priorites sur place.",
-    service_4_title: "Transport aeroport",
-    service_4_text:
-      "Organisation d'un transport a votre arrivee si vous souhaitez un accueil plus fluide.",
-    contact_eyebrow: "Contact TERANGA",
-    contact_title: "Parlez-nous de votre futur appartement a Dubai",
-    contact_text:
-      "Dites-nous votre budget, vos quartiers preferes et votre date d'arrivee pour recevoir une selection adaptee.",
-    catalog_eyebrow: "Catalogue TERANGA",
-    catalog_title: "Appartements a louer a Dubai",
+      "Une page simple, elegante et mobile pour aider les Africains et Senegalais a trouver plus vite un logement a Dubai avec TERANGA.",
+    check_in: "Check-In",
+    check_out: "Check-Out",
+    guests: "Guests",
+    location: "Location",
+    date_placeholder: "Choisir une date",
+    search_cta: "Rechercher",
+    amenity_pool: "Piscine",
+    amenity_kitchen: "Cuisine",
+    amenity_gym: "Gym",
+    amenity_pets: "Animaux acceptes",
+    amenity_balcony: "Balcon",
+    catalog_title: "Nos appartements vedettes",
     catalog_text:
-      "Une presentation mobile et claire des appartements TERANGA, avec prix en Dirham et contact direct.",
-    sort_label: "Trier par",
-    sort_recommended: "Recommande",
-    sort_recent: "Ajouts recents",
-    sort_price_low: "Prix croissant",
-    sort_price_high: "Prix decroissant",
-    sort_size_high: "Surface plus grande",
-    quick_label: "Quartiers suivis",
-    districts_title: "Les zones de location les plus demandees",
-    districts_text:
-      "Un apercu rapide des quartiers ou nos clients regardent le plus souvent.",
-    district_1_value: "A partir de 9 800 AED / mois",
-    district_1_text:
-      "Pour les profils actifs qui veulent un quartier vivant, proche de la plage et du metro.",
-    district_2_value: "A partir de 16 500 AED / mois",
-    district_2_text:
-      "Une adresse premium pour vivre au coeur du centre-ville et des grandes tours iconiques.",
-    district_3_value: "A partir de 8 900 AED / mois",
-    district_3_text:
-      "Un bon compromis pour les familles et les couples qui veulent plus d'equilibre au quotidien.",
-    district_4_value: "A partir de 32 500 AED / mois",
-    district_4_text:
-      "Une option prestige pour une clientele qui cherche un cadre residentiel exclusif et une vue mer.",
-    services_grid_title: "Services pour votre installation",
-    services_grid_text:
-      "Nous ne faisons pas que montrer des appartements. Nous vous aidons aussi a organiser votre arrivee.",
-    bottom_home: "Accueil",
-    bottom_properties: "Locations",
-    bottom_areas: "Quartiers",
-    bottom_services: "Services",
-    bottom_contact: "Contact",
-    footer_copy:
-      "Catalogue prive d'appartements a louer a Dubai, publies et suivis par notre equipe.",
-    neighborhood_all: "Tous les quartiers",
-    budget_any: "Tous les budgets",
-    bedrooms_all: "Toutes",
-    summary: "{count} appartements correspondent a votre recherche.",
-    verified_badge: "Verifie par TERANGA",
-    details: "Voir details",
+      "Des annonces simples, claires et toutes presentees dans le meme format.",
+    summary_all: "{count} appartements disponibles a Dubai.",
+    summary_filtered: "{count} appartements disponibles pour {location} et {guests} occupant(s).",
+    services_eyebrow: "Services TERANGA",
+    services_title: "On vous aide aussi a bien vous installer.",
+    service_1_title: "Selection d'appartements",
+    service_1_text:
+      "Nous preparons une selection adaptee a votre budget, votre quartier prefere et votre date d'arrivee.",
+    service_2_title: "Visite et reservation",
+    service_2_text:
+      "Notre equipe centralise les echanges, la disponibilite et la reservation de votre appartement.",
+    service_3_title: "Assistance installation",
+    service_3_text:
+      "Visa, relocation, aeroport ou mise en relation utile pour bien commencer votre vie a Dubai.",
+    contact_eyebrow: "Contact TERANGA",
+    contact_title: "Recevez une proposition rapide et claire.",
+    contact_text:
+      "Dites-nous votre quartier, votre budget et votre date d'arrivee. Nous vous repondons avec des appartements disponibles.",
     whatsapp: "WhatsApp",
-    facts_beds: "Chambres",
-    facts_baths: "Salles d'eau",
-    facts_size: "Surface",
-    facts_furnishing: "Mobilier",
-    tag_aed: "Prix mensuel en AED",
-    empty_title: "Aucun appartement ne correspond a ces filtres.",
-    empty_text: "Essayez un autre quartier, un autre budget ou un autre niveau de disponibilite.",
-    furnishing_value_furnished: "Meuble",
-    furnishing_value_unfurnished: "Non meuble",
-    availability_value_now: "Disponible maintenant",
-    availability_value_soon: "Disponible bientot",
-    monthly_chip: "Mensuel",
-    recent_subtitle: "Appartements a louer",
-    modal_overview: "Apercu",
-    modal_features: "Equipements",
-    modal_request: "Demander cet appartement",
-    modal_name: "Nom complet",
-    modal_phone: "Telephone / WhatsApp",
-    modal_message: "Message",
-    modal_submit: "Envoyer la demande",
-    modal_feedback:
-      "Merci {name}, votre demande a bien ete prise en compte par TERANGA.",
-    modal_published: "Appartement publie par TERANGA",
-    monthly_suffix: "/ mois",
-    yearly_suffix: "/ an",
+    listing_badge: "{rating} ★",
+    listing_month: "/ mois",
+    listing_year: "/ an",
+    fact_bedrooms: "chambre(s)",
+    fact_bathrooms: "salle(s) d'eau",
+    fact_size: "m2",
+    fact_capacity: "occupants",
+    details_label: "Disponibilite verifiee",
+    empty_title: "Aucun appartement ne correspond a votre recherche.",
+    empty_text: "Essayez un autre quartier ou retirez un filtre d'equipement.",
+    all_locations: "Any location",
+    whatsapp_intro: "Bonjour TERANGA, je souhaite recevoir plus d'informations sur",
+    whatsapp_suffix: "Merci.",
   },
   en: {
     page_title: "TERANGA | Apartments for Rent in Dubai",
-    status_label: "Exclusive apartment rentals in Dubai",
     brand_tagline: "Dubai apartment rentals",
-    hero_pill: "Private TERANGA catalogue",
+    menu_label: "Open menu",
+    menu_home: "Home",
+    menu_apartments: "Apartments",
+    menu_services: "Services",
+    menu_contact: "Contact",
+    hero_eyebrow: "Private selection in Dubai",
     hero_title: "Find your apartment for rent in Dubai.",
     hero_text:
-      "A rental platform designed for African and Senegalese clients with apartments published only by our team.",
-    top_pill_rentals: "Rentals",
-    top_pill_areas: "Areas",
-    top_pill_services: "Services",
-    mode_all: "All",
-    mode_furnished: "Furnished",
-    mode_now: "Available",
-    search_placeholder: "Search for a district, area or housing style",
-    field_neighborhood: "Neighborhood",
-    field_max_budget: "Max budget / month",
-    field_bedrooms: "Bedrooms",
-    recent_title: "Recent searches",
-    recent_text: "Quick entry points to revisit the most requested areas.",
-    promo_badge: "New",
-    promo_title: "Let us handle your rental search",
-    promo_text:
-      "We can prepare a shortlist of apartments based on your budget, preferred neighborhoods and move-in date.",
-    promo_cta: "Talk to TERANGA",
-    insight_title: "TERANGA move-in pack",
-    insight_text:
-      "Useful support beyond the apartment itself to make your arrival in Dubai easier.",
-    insight_chip_1: "Visa",
-    insight_chip_2: "Banking",
-    insight_chip_3: "Relocation",
-    insight_chip_4: "Airport",
-    services_title: "We can help beyond the apartment",
-    services_text:
-      "Visa guidance, relocation help, banking orientation and practical support for an easier move.",
-    service_1_title: "Visa assistance",
-    service_1_text:
-      "Guidance to understand visa steps and prepare your move with more confidence.",
-    service_2_title: "Bank account setup",
-    service_2_text:
-      "Introductions to suitable contacts to save time once you arrive.",
-    service_3_title: "Relocation support",
-    service_3_text:
-      "Practical help for your first days, your setup and your on-the-ground priorities.",
-    service_4_title: "Airport transfer",
-    service_4_text:
-      "Arrival transport coordination if you want a smoother welcome in Dubai.",
-    contact_eyebrow: "Contact TERANGA",
-    contact_title: "Tell us about your future apartment in Dubai",
-    contact_text:
-      "Share your budget, preferred neighborhoods and move-in date to receive a suitable shortlist.",
-    catalog_eyebrow: "TERANGA catalogue",
-    catalog_title: "Apartments for rent in Dubai",
+      "A simple, elegant and mobile-first page to help African and Senegalese clients find a home in Dubai faster with TERANGA.",
+    check_in: "Check-In",
+    check_out: "Check-Out",
+    guests: "Guests",
+    location: "Location",
+    date_placeholder: "Choose a date",
+    search_cta: "Search",
+    amenity_pool: "Swimming pool",
+    amenity_kitchen: "Kitchen",
+    amenity_gym: "Gym",
+    amenity_pets: "Pets allowed",
+    amenity_balcony: "Balcony",
+    catalog_title: "Our top properties",
     catalog_text:
-      "A clear mobile-inspired presentation of TERANGA apartments, with prices in Dirham and direct contact.",
-    sort_label: "Sort by",
-    sort_recommended: "Recommended",
-    sort_recent: "Recently added",
-    sort_price_low: "Price low to high",
-    sort_price_high: "Price high to low",
-    sort_size_high: "Largest size",
-    quick_label: "Tracked neighborhoods",
-    districts_title: "The rental areas most in demand",
-    districts_text:
-      "A quick overview of the neighborhoods our clients explore most often.",
-    district_1_value: "Starting from AED 9,800 / month",
-    district_1_text:
-      "For active profiles who want a lively district close to the beach and metro.",
-    district_2_value: "Starting from AED 16,500 / month",
-    district_2_text:
-      "A premium address to live in the heart of downtown and its iconic towers.",
-    district_3_value: "Starting from AED 8,900 / month",
-    district_3_text:
-      "A strong balance for families and couples who want more day-to-day comfort.",
-    district_4_value: "Starting from AED 32,500 / month",
-    district_4_text:
-      "A prestige option for clients looking for an exclusive residential setting and sea views.",
-    services_grid_title: "Support for your move",
-    services_grid_text:
-      "We do more than show apartments. We also help organize your arrival in Dubai.",
-    bottom_home: "Home",
-    bottom_properties: "Rentals",
-    bottom_areas: "Areas",
-    bottom_services: "Services",
-    bottom_contact: "Contact",
-    footer_copy:
-      "Private catalogue of rental apartments in Dubai, published and managed by our team.",
-    neighborhood_all: "All neighborhoods",
-    budget_any: "Any budget",
-    bedrooms_all: "All",
-    summary: "{count} apartments match your search.",
-    verified_badge: "Verified by TERANGA",
-    details: "View details",
+      "Simple, clear listings, all presented in the same format.",
+    summary_all: "{count} apartments available in Dubai.",
+    summary_filtered: "{count} apartments available for {location} and {guests} guest(s).",
+    services_eyebrow: "TERANGA services",
+    services_title: "We also help you settle in properly.",
+    service_1_title: "Apartment curation",
+    service_1_text:
+      "We prepare a shortlist based on your budget, preferred neighborhood and move-in date.",
+    service_2_title: "Visits and reservation",
+    service_2_text:
+      "Our team coordinates communication, availability and reservation for your apartment.",
+    service_3_title: "Move-in support",
+    service_3_text:
+      "Visa, relocation, airport pickup or useful introductions to start your Dubai life smoothly.",
+    contact_eyebrow: "Contact TERANGA",
+    contact_title: "Receive a fast and clear proposal.",
+    contact_text:
+      "Tell us your neighborhood, budget and move-in date. We reply with available apartments.",
     whatsapp: "WhatsApp",
-    facts_beds: "Bedrooms",
-    facts_baths: "Bathrooms",
-    facts_size: "Size",
-    facts_furnishing: "Furnishing",
-    tag_aed: "Monthly rent in AED",
-    empty_title: "No apartment matches these filters.",
-    empty_text: "Try another neighborhood, another budget or a different availability level.",
-    furnishing_value_furnished: "Furnished",
-    furnishing_value_unfurnished: "Unfurnished",
-    availability_value_now: "Available now",
-    availability_value_soon: "Available soon",
-    monthly_chip: "Monthly",
-    recent_subtitle: "Rental apartments",
-    modal_overview: "Overview",
-    modal_features: "Features",
-    modal_request: "Request this apartment",
-    modal_name: "Full name",
-    modal_phone: "Phone / WhatsApp",
-    modal_message: "Message",
-    modal_submit: "Send request",
-    modal_feedback: "Thanks {name}, your request has been received by TERANGA.",
-    modal_published: "Apartment published by TERANGA",
-    monthly_suffix: "/ month",
-    yearly_suffix: "/ year",
+    listing_badge: "{rating} ★",
+    listing_month: "/ month",
+    listing_year: "/ year",
+    fact_bedrooms: "bedroom(s)",
+    fact_bathrooms: "bathroom(s)",
+    fact_size: "sqm",
+    fact_capacity: "guests",
+    details_label: "Verified availability",
+    empty_title: "No apartment matches your search.",
+    empty_text: "Try another neighborhood or remove an amenity filter.",
+    all_locations: "Any location",
+    whatsapp_intro: "Hello TERANGA, I would like more information about",
+    whatsapp_suffix: "Thank you.",
   },
 };
 
 const listings = [
   {
-    id: "trg-201",
-    code: "TRG-201",
+    id: "trg-marina-01",
     neighborhood: "Dubai Marina",
     title: {
       fr: "Appartement meuble 1 chambre face a Marina Walk",
       en: "Furnished 1-bedroom apartment facing Marina Walk",
     },
     description: {
-      fr: "Un appartement lumineux et meuble, ideal pour un profil actif qui cherche la vie urbaine, les restaurants et un acces rapide au metro.",
-      en: "A bright furnished apartment ideal for active tenants who want urban energy, restaurants and quick access to the metro.",
+      fr: "Un appartement lumineux, moderne et pret a habiter pour un profil actif qui veut vivre pres de la marina.",
+      en: "A bright, modern and ready-to-move-in apartment for active renters who want to live near the marina.",
     },
     monthly: 9800,
     annual: 117600,
     bedrooms: 1,
     bathrooms: 2,
     size: 79,
-    furnishing: "furnished",
-    availability: "now",
+    capacity: 2,
+    rating: 4.9,
+    amenities: ["pool", "kitchen", "gym", "balcony"],
     image:
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Balcon", "Piscine", "Salle de sport", "Parking"],
-      en: ["Furnished", "Balcony", "Pool", "Gym", "Parking"],
-    },
-    mapQuery: "Dubai Marina, Dubai",
-    rank: 1,
   },
   {
-    id: "trg-202",
-    code: "TRG-202",
-    neighborhood: "Downtown Dubai",
-    title: {
-      fr: "Appartement premium 2 chambres proche Burj Khalifa",
-      en: "Premium 2-bedroom apartment near Burj Khalifa",
-    },
-    description: {
-      fr: "Une location haut de gamme au coeur de Downtown Dubai, avec finitions premium, lobby elegant et acces rapide au Dubai Mall.",
-      en: "An upscale rental in the heart of Downtown Dubai with premium finishes, elegant lobby access and quick reach to Dubai Mall.",
-    },
-    monthly: 16500,
-    annual: 198000,
-    bedrooms: 2,
-    bathrooms: 3,
-    size: 126,
-    furnishing: "furnished",
-    availability: "soon",
-    image:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Concierge", "Vue skyline", "Salle de sport", "Piscine"],
-      en: ["Furnished", "Concierge", "Skyline view", "Gym", "Pool"],
-    },
-    mapQuery: "Downtown Dubai, Dubai",
-    rank: 2,
-  },
-  {
-    id: "trg-203",
-    code: "TRG-203",
-    neighborhood: "Business Bay",
-    title: {
-      fr: "Studio moderne a louer avec vue canal",
-      en: "Modern studio for rent with canal view",
-    },
-    description: {
-      fr: "Un studio efficace pour un premier logement a Dubai, dans un immeuble recent avec reception, salle de sport et accessibilite rapide.",
-      en: "An efficient studio for a first Dubai home in a recent building with reception, gym and quick accessibility.",
-    },
-    monthly: 7200,
-    annual: 86400,
-    bedrooms: 0,
-    bathrooms: 1,
-    size: 46,
-    furnishing: "unfurnished",
-    availability: "now",
-    image:
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Vue canal", "Reception", "Salle de sport", "Parking"],
-      en: ["Canal view", "Reception", "Gym", "Parking"],
-    },
-    mapQuery: "Business Bay, Dubai",
-    rank: 3,
-  },
-  {
-    id: "trg-204",
-    code: "TRG-204",
+    id: "trg-jvc-02",
     neighborhood: "Jumeirah Village Circle",
     title: {
-      fr: "Appartement familial 2 chambres a JVC",
-      en: "Family 2-bedroom apartment in JVC",
+      fr: "Appartement familial 2 chambres au coeur de JVC",
+      en: "Family 2-bedroom apartment in the heart of JVC",
     },
     description: {
-      fr: "Une location equilibree pour les couples et les familles qui veulent un quartier pratique, plus calme et bien connecte.",
-      en: "A balanced rental for couples and families who want a practical, calmer and well-connected neighborhood.",
+      fr: "Une belle option pour les couples et familles qui cherchent plus d'espace, un balcon et une residence calme.",
+      en: "A strong option for couples and families seeking more space, a balcony and a quieter residence.",
     },
     monthly: 8900,
     annual: 106800,
     bedrooms: 2,
     bathrooms: 2,
     size: 108,
-    furnishing: "furnished",
-    availability: "soon",
+    capacity: 4,
+    rating: 4.9,
+    amenities: ["pool", "kitchen", "pets", "balcony"],
     image:
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Aire enfants", "Piscine", "Balcon", "Parking"],
-      en: ["Furnished", "Kids area", "Pool", "Balcony", "Parking"],
-    },
-    mapQuery: "Jumeirah Village Circle, Dubai",
-    rank: 4,
   },
   {
-    id: "trg-205",
-    code: "TRG-205",
+    id: "trg-downtown-03",
+    neighborhood: "Downtown Dubai",
+    title: {
+      fr: "Appartement premium 2 chambres proche Burj Khalifa",
+      en: "Premium 2-bedroom apartment near Burj Khalifa",
+    },
+    description: {
+      fr: "Une adresse haut de gamme au centre de Dubai avec finitions premium, salle de sport et services residents.",
+      en: "A high-end downtown Dubai address with premium finishes, gym access and resident services.",
+    },
+    monthly: 16500,
+    annual: 198000,
+    bedrooms: 2,
+    bathrooms: 3,
+    size: 126,
+    capacity: 4,
+    rating: 4.95,
+    amenities: ["pool", "kitchen", "gym", "balcony"],
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "trg-businessbay-04",
+    neighborhood: "Business Bay",
+    title: {
+      fr: "Studio moderne avec cuisine equipee et vue canal",
+      en: "Modern studio with fitted kitchen and canal view",
+    },
+    description: {
+      fr: "Un studio efficace pour une premiere installation a Dubai, dans une tour recente et bien connectee.",
+      en: "An efficient studio for a first Dubai move in a recent tower with strong connectivity.",
+    },
+    monthly: 7200,
+    annual: 86400,
+    bedrooms: 0,
+    bathrooms: 1,
+    size: 46,
+    capacity: 2,
+    rating: 4.8,
+    amenities: ["pool", "kitchen", "gym"],
+    image:
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    id: "trg-barsha-05",
     neighborhood: "Al Barsha",
     title: {
       fr: "Appartement 1 chambre proche Mall of the Emirates",
       en: "1-bedroom apartment near Mall of the Emirates",
     },
     description: {
-      fr: "Une option pratique pour une vie quotidienne simple, avec commerces, metro et grands axes a proximite.",
-      en: "A practical option for easy daily living with shops, metro and major roads nearby.",
+      fr: "Une location pratique pour un quotidien simple avec commerces, acces metro et balcon prive.",
+      en: "A practical rental for easy daily living with shops, metro access and a private balcony.",
     },
     monthly: 7600,
     annual: 91200,
     bedrooms: 1,
     bathrooms: 2,
     size: 74,
-    furnishing: "unfurnished",
-    availability: "now",
+    capacity: 2,
+    rating: 4.85,
+    amenities: ["kitchen", "pets", "balcony"],
     image:
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Metro proche", "Ascenseur", "Parking", "Salle de sport"],
-      en: ["Near metro", "Lift", "Parking", "Gym"],
-    },
-    mapQuery: "Al Barsha, Dubai",
-    rank: 5,
   },
   {
-    id: "trg-206",
-    code: "TRG-206",
+    id: "trg-hills-06",
     neighborhood: "Dubai Hills",
     title: {
-      fr: "Appartement recent 2 chambres a Dubai Hills",
-      en: "Recent 2-bedroom apartment in Dubai Hills",
+      fr: "Grand appartement 3 chambres a Dubai Hills",
+      en: "Large 3-bedroom apartment in Dubai Hills",
     },
     description: {
-      fr: "Une adresse recente pour locataires qui veulent un environnement plus residentiel avec parc, centre commercial et accessibilite.",
-      en: "A recent address for tenants who want a more residential environment with park access, mall and strong connectivity.",
+      fr: "Une residence recente avec grande cuisine, salle de sport, piscine et cadre residentiel premium.",
+      en: "A recent residence with a large kitchen, gym, pool and a premium residential setting.",
     },
-    monthly: 12800,
-    annual: 153600,
-    bedrooms: 2,
-    bathrooms: 2,
-    size: 118,
-    furnishing: "furnished",
-    availability: "soon",
+    monthly: 14800,
+    annual: 177600,
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 164,
+    capacity: 6,
+    rating: 4.95,
+    amenities: ["pool", "kitchen", "gym", "pets", "balcony"],
     image:
       "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Vue parc", "Piscine", "Salle de sport", "Parking"],
-      en: ["Furnished", "Park view", "Pool", "Gym", "Parking"],
-    },
-    mapQuery: "Dubai Hills, Dubai",
-    rank: 6,
-  },
-  {
-    id: "trg-207",
-    code: "TRG-207",
-    neighborhood: "Deira",
-    title: {
-      fr: "Studio budget a louer a Deira",
-      en: "Budget studio for rent in Deira",
-    },
-    description: {
-      fr: "Une formule plus accessible pour une premiere installation, avec quartier vivant, commerces et transports proches.",
-      en: "A more accessible setup for a first move, with a lively area, retail and nearby transport options.",
-    },
-    monthly: 5200,
-    annual: 62400,
-    bedrooms: 0,
-    bathrooms: 1,
-    size: 37,
-    furnishing: "furnished",
-    availability: "now",
-    image:
-      "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Wi-Fi", "Climatisation", "Reception"],
-      en: ["Furnished", "Wi-Fi", "Air conditioning", "Reception"],
-    },
-    mapQuery: "Deira, Dubai",
-    rank: 7,
-  },
-  {
-    id: "trg-208",
-    code: "TRG-208",
-    neighborhood: "Palm Jumeirah",
-    title: {
-      fr: "Appartement prestige 3 chambres sur Palm Jumeirah",
-      en: "Prestige 3-bedroom apartment on Palm Jumeirah",
-    },
-    description: {
-      fr: "Une location rare pour une clientele premium qui veut une experience residentielle exclusive, vue mer et services de standing.",
-      en: "A rare rental for premium clients seeking an exclusive residential experience, sea views and high-end services.",
-    },
-    monthly: 32500,
-    annual: 390000,
-    bedrooms: 3,
-    bathrooms: 4,
-    size: 214,
-    furnishing: "furnished",
-    availability: "soon",
-    image:
-      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200&q=80",
-    features: {
-      fr: ["Meuble", "Vue mer", "Piscine", "Concierge", "Acces plage"],
-      en: ["Furnished", "Sea view", "Pool", "Concierge", "Beach access"],
-    },
-    mapQuery: "Palm Jumeirah, Dubai",
-    rank: 8,
   },
 ];
 
+const amenityKeys = ["pool", "kitchen", "gym", "pets", "balcony"];
+
 const state = {
   lang: "fr",
-  query: "",
-  neighborhood: "all",
-  maxBudget: "",
-  bedrooms: "all",
-  mode: "all",
-  sort: "recommended",
+  guests: 1,
+  location: "all",
+  checkIn: "",
+  checkOut: "",
+  amenities: new Set(),
 };
 
-const budgetOptions = [5000, 7000, 9000, 12000, 16000, 22000, 30000, 40000];
-
 const titleElement = document.querySelector("title");
+const menuToggle = document.getElementById("menuToggle");
+const menuPanel = document.getElementById("menuPanel");
 const langButtons = document.querySelectorAll(".lang-button");
-const modeButtons = document.querySelectorAll(".mode-button");
-const neighborhoodSelect = document.getElementById("neighborhoodSelect");
-const maxBudgetSelect = document.getElementById("maxBudgetSelect");
-const bedroomsSelect = document.getElementById("bedroomsSelect");
-const sortSelect = document.getElementById("sortSelect");
-const heroSearchInput = document.getElementById("heroSearchInput");
-const heroSearchButton = document.getElementById("heroSearchButton");
-const recentSearches = document.getElementById("recentSearches");
-const quickTagRow = document.getElementById("quickTagRow");
+const checkInTrigger = document.getElementById("checkInTrigger");
+const checkOutTrigger = document.getElementById("checkOutTrigger");
+const checkInInput = document.getElementById("checkInInput");
+const checkOutInput = document.getElementById("checkOutInput");
+const checkInValue = document.getElementById("checkInValue");
+const checkOutValue = document.getElementById("checkOutValue");
+const locationSelect = document.getElementById("locationSelect");
+const guestCountValue = document.getElementById("guestCountValue");
+const searchForm = document.getElementById("searchForm");
+const amenityGrid = document.getElementById("amenityGrid");
 const listingGrid = document.getElementById("listingGrid");
 const resultsSummary = document.getElementById("resultsSummary");
-const propertyModal = document.getElementById("propertyModal");
-const modalContent = document.getElementById("modalContent");
-const closeModalButton = document.getElementById("closeModalButton");
+const footerWhatsapp = document.getElementById("footerWhatsapp");
+const floatingWhatsapp = document.getElementById("floatingWhatsapp");
 
 function t(key) {
   return translations[state.lang][key];
 }
 
 function getLocale() {
-  return state.lang === "fr" ? "fr-FR" : "en-AE";
+  return state.lang === "fr" ? "fr-FR" : "en-GB";
 }
 
 function formatAed(value) {
@@ -509,30 +295,77 @@ function formatAed(value) {
   return state.lang === "fr" ? `${formatted} AED` : `AED ${formatted}`;
 }
 
-function replaceToken(template, token, value) {
-  return template.replace(token, value);
+function formatRating(value) {
+  return value.toFixed(2);
 }
 
-function getNeighborhoods() {
+function formatDate(value) {
+  if (!value) {
+    return t("date_placeholder");
+  }
+
+  const date = new Date(`${value}T00:00:00`);
+  return new Intl.DateTimeFormat(getLocale(), {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
+function replaceTokens(template, values) {
+  return Object.entries(values).reduce((output, [token, value]) => {
+    return output.replaceAll(`{${token}}`, value);
+  }, template);
+}
+
+function getLocations() {
   return [...new Set(listings.map((listing) => listing.neighborhood))];
 }
 
-function getBedroomsLabel(value) {
+function getBedroomLabel(value) {
   return value === 0 ? "Studio" : String(value);
 }
 
-function getFurnishingLabel(value) {
-  return value === "furnished"
-    ? t("furnishing_value_furnished")
-    : t("furnishing_value_unfurnished");
+function getAmenityLabel(value) {
+  return t(`amenity_${value}`);
 }
 
-function getAvailabilityLabel(value) {
-  return value === "now" ? t("availability_value_now") : t("availability_value_soon");
+function getTodayString() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = `${today.getMonth() + 1}`.padStart(2, "0");
+  const day = `${today.getDate()}`.padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
-function getSecondaryPrice(listing) {
-  return `${formatAed(listing.annual)} ${t("yearly_suffix")}`;
+function openDatePicker(input) {
+  try {
+    if (typeof input.showPicker === "function") {
+      input.showPicker();
+      return;
+    }
+  } catch (error) {
+    // Fallback below for browsers without working showPicker support.
+  }
+
+  input.focus({ preventScroll: true });
+  input.click();
+}
+
+function updateDateDisplay(input, target) {
+  const hasValue = Boolean(input.value);
+  target.textContent = formatDate(input.value);
+  target.classList.toggle("is-placeholder", !hasValue);
+}
+
+function syncDateLimits() {
+  checkInInput.min = getTodayString();
+  checkOutInput.min = state.checkIn || getTodayString();
+
+  if (state.checkIn && state.checkOut && state.checkOut < state.checkIn) {
+    state.checkOut = "";
+    checkOutInput.value = "";
+  }
 }
 
 function applyStaticTranslations() {
@@ -546,10 +379,10 @@ function applyStaticTranslations() {
     }
   });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    const key = element.dataset.i18nPlaceholder;
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    const key = element.dataset.i18nAriaLabel;
     if (translations[state.lang][key]) {
-      element.setAttribute("placeholder", t(key));
+      element.setAttribute("aria-label", t(key));
     }
   });
 }
@@ -560,148 +393,107 @@ function renderLanguageButtons() {
   });
 }
 
-function renderModeButtons() {
-  modeButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.mode === state.mode);
-  });
-}
-
-function renderNeighborhoodOptions() {
-  neighborhoodSelect.innerHTML = [
-    `<option value="all">${t("neighborhood_all")}</option>`,
-    ...getNeighborhoods().map(
-      (neighborhood) => `<option value="${neighborhood}">${neighborhood}</option>`
+function renderLocationOptions() {
+  locationSelect.innerHTML = [
+    `<option value="all">${t("all_locations")}</option>`,
+    ...getLocations().map(
+      (location) => `<option value="${location}">${location}</option>`
     ),
   ].join("");
-  neighborhoodSelect.value = state.neighborhood;
+
+  locationSelect.value = state.location;
+  locationSelect.classList.toggle("is-placeholder", state.location === "all");
 }
 
-function renderBudgetOptions() {
-  maxBudgetSelect.innerHTML = [
-    `<option value="">${t("budget_any")}</option>`,
-    ...budgetOptions.map((value) => `<option value="${value}">${formatAed(value)}</option>`),
-  ].join("");
-  maxBudgetSelect.value = state.maxBudget;
-}
-
-function renderBedroomOptions() {
-  bedroomsSelect.innerHTML = `
-    <option value="all">${t("bedrooms_all")}</option>
-    <option value="0">Studio</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3+</option>
-  `;
-  bedroomsSelect.value = state.bedrooms;
-}
-
-function renderSortOptions() {
-  sortSelect.innerHTML = `
-    <option value="recommended">${t("sort_recommended")}</option>
-    <option value="recent">${t("sort_recent")}</option>
-    <option value="price-low">${t("sort_price_low")}</option>
-    <option value="price-high">${t("sort_price_high")}</option>
-    <option value="size-high">${t("sort_size_high")}</option>
-  `;
-  sortSelect.value = state.sort;
-}
-
-function renderQuickTags() {
-  quickTagRow.innerHTML = getNeighborhoods()
-    .slice(0, 6)
-    .map(
-      (neighborhood) => `
-        <button class="quick-tag" type="button" data-quick-neighborhood="${neighborhood}">
-          ${neighborhood}
-        </button>
-      `
-    )
-    .join("");
-
-  document.querySelectorAll("[data-quick-neighborhood]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.neighborhood = button.dataset.quickNeighborhood;
-      neighborhoodSelect.value = state.neighborhood;
-      renderListings();
-    });
-  });
-}
-
-function renderRecentSearches() {
-  recentSearches.innerHTML = listings
-    .slice(0, 3)
-    .map((listing) => {
+function renderAmenityFilters() {
+  amenityGrid.innerHTML = amenityKeys
+    .map((key) => {
+      const checked = state.amenities.has(key) ? "checked" : "";
       return `
-        <button class="recent-card" type="button" data-recent-neighborhood="${listing.neighborhood}">
-          <img src="${listing.image}" alt="${listing.title[state.lang]}" loading="lazy" />
-          <div class="recent-copy">
-            <h3>${listing.neighborhood}</h3>
-            <p>${t("recent_subtitle")}</p>
-            <div class="recent-chips">
-              <span>${getBedroomsLabel(listing.bedrooms)}</span>
-              <span>${t("monthly_chip")}</span>
-            </div>
-          </div>
-        </button>
+        <label class="amenity-chip">
+          <input type="checkbox" value="${key}" ${checked} />
+          <span class="amenity-face">
+            <span class="amenity-box" aria-hidden="true"></span>
+            <span>${t(`amenity_${key}`)}</span>
+          </span>
+        </label>
       `;
     })
     .join("");
 
-  document.querySelectorAll("[data-recent-neighborhood]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.neighborhood = button.dataset.recentNeighborhood;
-      neighborhoodSelect.value = state.neighborhood;
+  amenityGrid.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("change", () => {
+      if (input.checked) {
+        state.amenities.add(input.value);
+      } else {
+        state.amenities.delete(input.value);
+      }
       renderListings();
-      document.getElementById("listingsSection").scrollIntoView({ behavior: "smooth" });
+      updateWhatsappLinks();
     });
   });
 }
 
-function getFilteredListings() {
-  const query = state.query.trim().toLowerCase();
+function buildSummary(count) {
+  if (state.location === "all" && state.guests === 1) {
+    return replaceTokens(t("summary_all"), { count: String(count) });
+  }
 
-  const filtered = listings.filter((listing) => {
-    const neighborhoodMatch =
-      state.neighborhood === "all" || listing.neighborhood === state.neighborhood;
-    const maxBudgetMatch =
-      !state.maxBudget || listing.monthly <= Number(state.maxBudget);
-    const bedroomsMatch =
-      state.bedrooms === "all" ||
-      (state.bedrooms === "3" ? listing.bedrooms >= 3 : listing.bedrooms === Number(state.bedrooms));
-    const modeMatch =
-      state.mode === "all" ||
-      (state.mode === "furnished" && listing.furnishing === "furnished") ||
-      (state.mode === "now" && listing.availability === "now");
-    const queryMatch =
-      !query ||
-      listing.neighborhood.toLowerCase().includes(query) ||
-      listing.title.fr.toLowerCase().includes(query) ||
-      listing.title.en.toLowerCase().includes(query) ||
-      listing.description.fr.toLowerCase().includes(query) ||
-      listing.description.en.toLowerCase().includes(query);
+  const locationLabel =
+    state.location === "all" ? "Dubai" : state.location;
 
-    return neighborhoodMatch && maxBudgetMatch && bedroomsMatch && modeMatch && queryMatch;
+  return replaceTokens(t("summary_filtered"), {
+    count: String(count),
+    location: locationLabel,
+    guests: String(state.guests),
   });
+}
 
-  return filtered.sort((left, right) => {
-    switch (state.sort) {
-      case "recent":
-        return right.rank - left.rank;
-      case "price-low":
-        return left.monthly - right.monthly;
-      case "price-high":
-        return right.monthly - left.monthly;
-      case "size-high":
-        return right.size - left.size;
-      default:
-        return left.rank - right.rank;
-    }
+function buildWhatsappMessage(listingTitle = "") {
+  const details = [];
+
+  if (state.location !== "all") {
+    details.push(state.location);
+  }
+
+  details.push(`${state.guests} ${t("fact_capacity")}`);
+
+  if (state.checkIn) {
+    details.push(`${t("check_in")}: ${formatDate(state.checkIn)}`);
+  }
+
+  if (state.checkOut) {
+    details.push(`${t("check_out")}: ${formatDate(state.checkOut)}`);
+  }
+
+  const requestedItem = listingTitle ? ` ${listingTitle}.` : " un appartement a Dubai.";
+  const searchContext = details.length ? ` ${details.join(" | ")}.` : "";
+
+  return `${t("whatsapp_intro")}${requestedItem}${searchContext} ${t("whatsapp_suffix")}`.trim();
+}
+
+function updateWhatsappLinks() {
+  const genericMessage = encodeURIComponent(buildWhatsappMessage());
+  footerWhatsapp.href = `https://wa.me/971543338520?text=${genericMessage}`;
+  floatingWhatsapp.href = `https://wa.me/971543338520?text=${genericMessage}`;
+}
+
+function getFilteredListings() {
+  return listings.filter((listing) => {
+    const locationMatch =
+      state.location === "all" || listing.neighborhood === state.location;
+    const capacityMatch = listing.capacity >= state.guests;
+    const amenityMatch = [...state.amenities].every((amenity) =>
+      listing.amenities.includes(amenity)
+    );
+
+    return locationMatch && capacityMatch && amenityMatch;
   });
 }
 
 function renderListings() {
   const filteredListings = getFilteredListings();
-  resultsSummary.textContent = replaceToken(t("summary"), "{count}", String(filteredListings.length));
+  resultsSummary.textContent = buildSummary(filteredListings.length);
 
   if (!filteredListings.length) {
     listingGrid.innerHTML = `
@@ -715,66 +507,46 @@ function renderListings() {
 
   listingGrid.innerHTML = filteredListings
     .map((listing) => {
+      const whatsappLink = `https://wa.me/971543338520?text=${encodeURIComponent(
+        buildWhatsappMessage(listing.title[state.lang])
+      )}`;
+      const metaSummary = [
+        `${listing.capacity} ${t("fact_capacity")}`,
+        `${getBedroomLabel(listing.bedrooms)} ${t("fact_bedrooms")}`,
+        `${listing.bathrooms} ${t("fact_bathrooms")}`,
+      ].join(" • ");
+      const amenityChips = listing.amenities
+        .slice(0, 3)
+        .map((amenity) => `<span class="meta-pill">${getAmenityLabel(amenity)}</span>`)
+        .join("");
+      const ratingText = replaceTokens(t("listing_badge"), {
+        rating: formatRating(listing.rating),
+      });
+
       return `
         <article class="listing-card">
           <div class="listing-media">
             <img src="${listing.image}" alt="${listing.title[state.lang]}" loading="lazy" />
-            <span class="listing-badge">${t("verified_badge")}</span>
-            <span class="listing-code">${listing.code}</span>
-          </div>
-          <div class="listing-body">
-            <div class="listing-head">
-              <div>
-                <h3 class="listing-title">${listing.title[state.lang]}</h3>
-                <div class="listing-location">Dubai - ${listing.neighborhood}</div>
-              </div>
-              <div class="listing-price">
-                ${formatAed(listing.monthly)} ${t("monthly_suffix")}
-                <small>${getSecondaryPrice(listing)}</small>
-              </div>
+            <span class="listing-badge">${ratingText}</span>
+            <div class="listing-dots" aria-hidden="true">
+              <span></span>
+              <span class="is-active"></span>
+              <span></span>
             </div>
+          </div>
+
+          <div class="listing-body">
+            <h3>${listing.title[state.lang]}</h3>
+            <p class="listing-summary">${metaSummary}</p>
+            <p class="listing-price-line">${formatAed(listing.monthly)} ${t("listing_month")}</p>
 
             <div class="listing-meta">
-              <span class="listing-tag">${t("tag_aed")}</span>
-              <span class="listing-tag">${getFurnishingLabel(listing.furnishing)}</span>
-              <span class="listing-tag">${getAvailabilityLabel(listing.availability)}</span>
-            </div>
-
-            <p class="listing-description">${listing.description[state.lang]}</p>
-
-            <div class="listing-facts">
-              <div>
-                <strong>${getBedroomsLabel(listing.bedrooms)}</strong>
-                <span>${t("facts_beds")}</span>
-              </div>
-              <div>
-                <strong>${listing.bathrooms}</strong>
-                <span>${t("facts_baths")}</span>
-              </div>
-              <div>
-                <strong>${listing.size} m2</strong>
-                <span>${t("facts_size")}</span>
-              </div>
-              <div>
-                <strong>${getFurnishingLabel(listing.furnishing)}</strong>
-                <span>${t("facts_furnishing")}</span>
-              </div>
+              ${amenityChips}
             </div>
 
             <div class="listing-actions">
-              <button class="secondary-button" type="button" data-listing-id="${listing.id}">
-                ${t("details")}
-              </button>
-              <a
-                class="primary-button"
-                href="https://wa.me/971543338520?text=${encodeURIComponent(
-                  state.lang === "fr"
-                    ? `Bonjour TERANGA, je souhaite plus d'informations sur ${listing.title.fr}.`
-                    : `Hello TERANGA, I would like more information about ${listing.title.en}.`
-                )}"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <span class="listing-secondary">${t("details_label")}</span>
+              <a class="listing-cta" href="${whatsappLink}" target="_blank" rel="noreferrer">
                 ${t("whatsapp")}
               </a>
             </div>
@@ -783,157 +555,60 @@ function renderListings() {
       `;
     })
     .join("");
-
-  document.querySelectorAll("[data-listing-id]").forEach((button) => {
-    button.addEventListener("click", () => openModal(button.dataset.listingId));
-  });
 }
 
-function bindModalForm(listing) {
-  const form = document.getElementById("modalRequestForm");
-  const feedback = document.getElementById("modalFeedback");
-  const mapButton = document.getElementById("modalMapLink");
-
-  mapButton.addEventListener("click", () => {
-    window.open(
-      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(listing.mapQuery)}`,
-      "_blank",
-      "noopener"
-    );
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = form.elements.namedItem("name").value.trim() || "client";
-    feedback.textContent = replaceToken(t("modal_feedback"), "{name}", name);
-    form.reset();
-  });
+function renderGuests() {
+  guestCountValue.textContent = String(state.guests);
 }
 
-function openModal(listingId) {
-  const listing = listings.find((item) => item.id === listingId);
-
-  if (!listing) {
-    return;
-  }
-
-  modalContent.innerHTML = `
-    <div class="modal-layout">
-      <div>
-        <img class="modal-main-image" src="${listing.image}" alt="${listing.title[state.lang]}" />
-      </div>
-      <div>
-        <div class="modal-title-row">
-          <div>
-            <h2 id="modalTitle">${listing.title[state.lang]}</h2>
-            <p class="modal-copy">${t("modal_published")} - ${listing.code}</p>
-          </div>
-          <div class="modal-price">
-            ${formatAed(listing.monthly)} ${t("monthly_suffix")}
-            <small>${getSecondaryPrice(listing)}</small>
-          </div>
-        </div>
-
-        <div class="modal-facts">
-          <div>
-            <strong>${getBedroomsLabel(listing.bedrooms)}</strong>
-            <span>${t("facts_beds")}</span>
-          </div>
-          <div>
-            <strong>${listing.bathrooms}</strong>
-            <span>${t("facts_baths")}</span>
-          </div>
-          <div>
-            <strong>${listing.size} m2</strong>
-            <span>${t("facts_size")}</span>
-          </div>
-          <div>
-            <strong>${getFurnishingLabel(listing.furnishing)}</strong>
-            <span>${t("facts_furnishing")}</span>
-          </div>
-        </div>
-
-        <section class="modal-section">
-          <h3>${t("modal_overview")}</h3>
-          <p class="modal-copy">${listing.description[state.lang]}</p>
-        </section>
-
-        <section class="modal-section">
-          <h3>${t("modal_features")}</h3>
-          <ul class="modal-features">
-            ${listing.features[state.lang].map((feature) => `<li>${feature}</li>`).join("")}
-          </ul>
-        </section>
-
-        <section class="modal-section">
-          <div class="modal-actions">
-            <button class="secondary-button" id="modalMapLink" type="button">
-              Google Maps
-            </button>
-            <a
-              class="primary-button"
-              href="https://wa.me/971543338520?text=${encodeURIComponent(
-                state.lang === "fr"
-                  ? `Bonjour TERANGA, je souhaite recevoir la fiche de ${listing.title.fr}.`
-                  : `Hello TERANGA, I would like to receive the file for ${listing.title.en}.`
-              )}"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ${t("whatsapp")}
-            </a>
-          </div>
-        </section>
-
-        <section class="modal-section">
-          <h3>${t("modal_request")}</h3>
-          <form id="modalRequestForm" class="modal-request-form">
-            <div class="modal-request-grid">
-              <label>
-                <span>${t("modal_name")}</span>
-                <input name="name" type="text" required />
-              </label>
-              <label>
-                <span>${t("modal_phone")}</span>
-                <input name="phone" type="text" required />
-              </label>
-            </div>
-            <label>
-              <span>${t("modal_message")}</span>
-              <textarea name="message" required>${listing.title[state.lang]}</textarea>
-            </label>
-            <button class="primary-button" type="submit">${t("modal_submit")}</button>
-            <p id="modalFeedback" class="form-feedback" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
-    </div>
-  `;
-
-  bindModalForm(listing);
-  propertyModal.hidden = false;
-  document.body.classList.add("modal-open");
-}
-
-function closeModal() {
-  propertyModal.hidden = true;
-  document.body.classList.remove("modal-open");
-  modalContent.innerHTML = "";
+function renderDates() {
+  updateDateDisplay(checkInInput, checkInValue);
+  updateDateDisplay(checkOutInput, checkOutValue);
 }
 
 function renderAll() {
   applyStaticTranslations();
   renderLanguageButtons();
-  renderModeButtons();
-  renderNeighborhoodOptions();
-  renderBudgetOptions();
-  renderBedroomOptions();
-  renderSortOptions();
-  renderRecentSearches();
-  renderQuickTags();
+  renderLocationOptions();
+  renderAmenityFilters();
+  renderGuests();
+  syncDateLimits();
+  renderDates();
   renderListings();
-  heroSearchInput.value = state.query;
+  updateWhatsappLinks();
 }
+
+function toggleMenu(forceState) {
+  const shouldOpen = typeof forceState === "boolean" ? forceState : menuPanel.hidden;
+  menuPanel.hidden = !shouldOpen;
+  menuToggle.setAttribute("aria-expanded", String(shouldOpen));
+}
+
+menuToggle.addEventListener("click", () => {
+  toggleMenu();
+});
+
+checkInTrigger.addEventListener("click", () => {
+  openDatePicker(checkInInput);
+});
+
+checkOutTrigger.addEventListener("click", () => {
+  openDatePicker(checkOutInput);
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    !menuPanel.hidden &&
+    !menuPanel.contains(event.target) &&
+    !menuToggle.contains(event.target)
+  ) {
+    toggleMenu(false);
+  }
+});
+
+document.querySelectorAll(".menu-links a").forEach((link) => {
+  link.addEventListener("click", () => toggleMenu(false));
+});
 
 langButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -942,55 +617,46 @@ langButtons.forEach((button) => {
   });
 });
 
-modeButtons.forEach((button) => {
+document.querySelectorAll("[data-guest-step]").forEach((button) => {
   button.addEventListener("click", () => {
-    state.mode = button.dataset.mode;
-    renderModeButtons();
+    const nextValue = state.guests + Number(button.dataset.guestStep);
+    state.guests = Math.min(8, Math.max(1, nextValue));
+    renderGuests();
     renderListings();
+    updateWhatsappLinks();
   });
 });
 
-heroSearchInput.addEventListener("input", () => {
-  state.query = heroSearchInput.value;
-  renderListings();
+checkInInput.addEventListener("change", () => {
+  state.checkIn = checkInInput.value;
+  syncDateLimits();
+  renderDates();
+  updateWhatsappLinks();
 });
 
-heroSearchButton.addEventListener("click", () => {
-  state.query = heroSearchInput.value;
-  renderListings();
+checkOutInput.addEventListener("change", () => {
+  state.checkOut = checkOutInput.value;
+  renderDates();
+  updateWhatsappLinks();
 });
 
-neighborhoodSelect.addEventListener("change", () => {
-  state.neighborhood = neighborhoodSelect.value;
+locationSelect.addEventListener("change", () => {
+  state.location = locationSelect.value;
+  locationSelect.classList.toggle("is-placeholder", state.location === "all");
   renderListings();
+  updateWhatsappLinks();
 });
 
-maxBudgetSelect.addEventListener("change", () => {
-  state.maxBudget = maxBudgetSelect.value;
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   renderListings();
-});
-
-bedroomsSelect.addEventListener("change", () => {
-  state.bedrooms = bedroomsSelect.value;
-  renderListings();
-});
-
-sortSelect.addEventListener("change", () => {
-  state.sort = sortSelect.value;
-  renderListings();
-});
-
-closeModalButton.addEventListener("click", closeModal);
-
-propertyModal.addEventListener("click", (event) => {
-  if (event.target instanceof HTMLElement && event.target.dataset.closeModal === "true") {
-    closeModal();
-  }
+  updateWhatsappLinks();
+  document.getElementById("apartments").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !propertyModal.hidden) {
-    closeModal();
+  if (event.key === "Escape" && !menuPanel.hidden) {
+    toggleMenu(false);
   }
 });
 
