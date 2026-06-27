@@ -486,8 +486,8 @@ function buildWhatsappMessage(listingTitle = "") {
 
 function updateWhatsappLinks() {
   const genericMessage = encodeURIComponent(buildWhatsappMessage());
-  footerWhatsapp.href = `https://wa.me/971543338520?text=${genericMessage}`;
-  floatingWhatsapp.href = `https://wa.me/971543338520?text=${genericMessage}`;
+  footerWhatsapp.href = `https://wa.me/971528876133?text=${genericMessage}`;
+  floatingWhatsapp.href = `https://wa.me/971528876133?text=${genericMessage}`;
 }
 
 function getFilteredListings() {
@@ -519,7 +519,7 @@ function renderListings() {
 
   listingGrid.innerHTML = filteredListings
     .map((listing) => {
-      const whatsappLink = `https://wa.me/971543338520?text=${encodeURIComponent(
+      const whatsappLink = `https://wa.me/971528876133?text=${encodeURIComponent(
         buildWhatsappMessage(listing.title[state.lang])
       )}`;
       const metaSummary = [

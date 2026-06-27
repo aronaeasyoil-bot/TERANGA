@@ -95,7 +95,7 @@ document.querySelectorAll("[data-service-form]").forEach((form) => {
     });
 
     const message = `${intro}\n${lines.join("\n")}\nMerci.`;
-    const whatsappUrl = `https://wa.me/971543338520?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/971528876133?text=${encodeURIComponent(message)}`;
 
     if (feedback) {
       feedback.textContent = success;
