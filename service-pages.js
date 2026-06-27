@@ -67,8 +67,10 @@ document.querySelectorAll("[data-service-form]").forEach((form) => {
     const success =
       form.dataset.success ||
       "Votre demande est prete. La conversation WhatsApp va s'ouvrir pour la finalisation.";
+    const requestType = form.dataset.requestType || "other";
 
     const lines = [];
+    const data = {};
 
     form.querySelectorAll("[data-label]").forEach((field) => {
       const label = field.dataset.label;
@@ -80,6 +82,7 @@ document.querySelectorAll("[data-service-form]").forEach((form) => {
 
         if (fileNames) {
           lines.push(`- ${label}: ${fileNames}`);
+          data[field.name] = fileNames;
         }
         return;
       }
@@ -91,8 +94,18 @@ document.querySelectorAll("[data-service-form]").forEach((form) => {
       const value = (field.value || "").trim();
       if (value) {
         lines.push(`- ${label}: ${value}`);
+        data[field.name] = value;
       }
     });
+
+    if (window.terangaStore?.addRequest) {
+      window.terangaStore.addRequest({
+        type: requestType,
+        title: intro,
+        fields: lines,
+        data,
+      });
+    }
 
     const message = `${intro}\n${lines.join("\n")}\nMerci.`;
     const whatsappUrl = `https://wa.me/971528876133?text=${encodeURIComponent(message)}`;

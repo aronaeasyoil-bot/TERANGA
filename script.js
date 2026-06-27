@@ -9,6 +9,7 @@ const translations = {
     menu_visa: "Visa Dubai",
     menu_flights: "Billets d'avion",
     menu_food: "Plats senegalais",
+    menu_admin: "Admin",
     menu_contact: "Contact",
     hero_eyebrow: "Bienvenue chez TERANGA",
     hero_title: "L'hospitalite africaine au service de votre reussite aux Emirats.",
@@ -48,7 +49,7 @@ const translations = {
     contact_text:
       "Dites-nous votre quartier, votre budget et votre date d'arrivee. Nous vous repondons avec des appartements disponibles.",
     whatsapp: "WhatsApp",
-    listing_badge: "{rating} ★",
+    listing_badge: "{rating} / 5",
     listing_month: "/ mois",
     listing_year: "/ an",
     fact_bedrooms: "chambre(s)",
@@ -73,6 +74,7 @@ const translations = {
     menu_visa: "Dubai visa",
     menu_flights: "Flights",
     menu_food: "Senegalese food",
+    menu_admin: "Admin",
     menu_contact: "Contact",
     hero_eyebrow: "Welcome to TERANGA",
     hero_title: "African hospitality dedicated to your success in the Emirates.",
@@ -112,7 +114,7 @@ const translations = {
     contact_text:
       "Tell us your neighborhood, budget and move-in date. We reply with available apartments.",
     whatsapp: "WhatsApp",
-    listing_badge: "{rating} ★",
+    listing_badge: "{rating} / 5",
     listing_month: "/ month",
     listing_year: "/ year",
     fact_bedrooms: "bedroom(s)",
@@ -129,7 +131,7 @@ const translations = {
   },
 };
 
-const listings = [
+const fallbackListings = [
   {
     id: "trg-marina-01",
     neighborhood: "Dubai Marina",
@@ -330,12 +332,26 @@ function replaceTokens(template, values) {
   }, template);
 }
 
+function getListings() {
+  return (window.terangaStore?.loadListings?.() || fallbackListings).filter(
+    (listing) => listing.active !== false
+  );
+}
+
 function getLocations() {
-  return [...new Set(listings.map((listing) => listing.neighborhood))];
+  return [...new Set(getListings().map((listing) => listing.neighborhood))];
 }
 
 function getBedroomLabel(value) {
   return value === 0 ? "Studio" : String(value);
+}
+
+function getBedroomSummary(value) {
+  if (value === 0) {
+    return "Studio";
+  }
+
+  return `${getBedroomLabel(value)} ${t("fact_bedrooms")}`;
 }
 
 function getAmenityLabel(value) {
@@ -406,11 +422,15 @@ function renderLanguageButtons() {
 }
 
 function renderLocationOptions() {
+  const locations = getLocations();
+
+  if (state.location !== "all" && !locations.includes(state.location)) {
+    state.location = "all";
+  }
+
   locationSelect.innerHTML = [
     `<option value="all">${t("all_locations")}</option>`,
-    ...getLocations().map(
-      (location) => `<option value="${location}">${location}</option>`
-    ),
+    ...locations.map((location) => `<option value="${location}">${location}</option>`),
   ].join("");
 
   locationSelect.value = state.location;
@@ -491,7 +511,7 @@ function updateWhatsappLinks() {
 }
 
 function getFilteredListings() {
-  return listings.filter((listing) => {
+  return getListings().filter((listing) => {
     const locationMatch =
       state.location === "all" || listing.neighborhood === state.location;
     const capacityMatch = listing.capacity >= state.guests;
@@ -524,9 +544,9 @@ function renderListings() {
       )}`;
       const metaSummary = [
         `${listing.capacity} ${t("fact_capacity")}`,
-        `${getBedroomLabel(listing.bedrooms)} ${t("fact_bedrooms")}`,
+        getBedroomSummary(listing.bedrooms),
         `${listing.bathrooms} ${t("fact_bathrooms")}`,
-      ].join(" • ");
+      ].join(" | ");
       const ratingText = replaceTokens(t("listing_badge"), {
         rating: formatRating(listing.rating),
       });
@@ -663,6 +683,14 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !menuPanel.hidden) {
     toggleMenu(false);
   }
+});
+
+window.addEventListener("storage", (event) => {
+  if (event.key && !event.key.startsWith("teranga_")) {
+    return;
+  }
+
+  renderAll();
 });
 
 renderAll();

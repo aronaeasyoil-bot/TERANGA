@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Administration TERANGA: gestion des appartements, des demandes de visas, de billets et des commandes."
+    />
+    <title>TERANGA | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="TERANGA">
+          <img class="brand-logo" src="./assets/logo-teranga.jpeg" alt="Logo TERANGA" />
+          <div class="brand-copy">
+            <strong>TERANGA</strong>
+            <small>Admin dashboard</small>
+          </div>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menuPanel"
+          aria-label="Ouvrir le menu"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7H20"></path>
+            <path d="M4 12H20"></path>
+            <path d="M4 17H20"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="menu-panel" id="menuPanel" hidden>
+        <nav class="menu-links" aria-label="Navigation">
+          <a href="./index.html">Accueil</a>
+          <a href="./visa.html">Visa Dubai</a>
+          <a href="./billets.html">Billets d'avion</a>
+          <a href="./plats.html">Plats senegalais</a>
+          <a href="./admin.html">Admin</a>
+        </nav>
+
+        <div class="menu-meta">
+          <a class="menu-contact" href="mailto:contact@teranga.ae">contact@teranga.ae</a>
+          <a class="menu-contact" href="tel:+971528876133">+971 52 887 6133</a>
+          <a class="menu-contact" href="tel:+221781000577">+221 78 100 05 77</a>
+        </div>
+      </div>
+
+      <main class="service-page">
+        <section class="service-hero">
+          <p class="eyebrow">TERANGA Admin</p>
+          <h1>Pilotez vos appartements et suivez vos demandes depuis un seul espace.</h1>
+          <p>
+            Cet espace vous permet d'ajouter vos appartements, de charger des images,
+            de fixer les prix et de voir les demandes Visa, Billets et Commandes en cours.
+          </p>
+
+          <div class="service-badges">
+            <span>Appartements</span>
+            <span>Demandes Visa</span>
+            <span>Demandes Billets</span>
+            <span>Commandes Plats</span>
+          </div>
+        </section>
+
+        <section class="admin-note">
+          <p>
+            Mode actuel: les donnees admin et les demandes sont stockees dans ce navigateur.
+            C'est ideal pour gerer votre site tout de suite. Pour une reception centralisee
+            sur plusieurs appareils, on pourra ensuite brancher une vraie base de donnees.
+          </p>
+        </section>
+
+        <section class="admin-login-card" id="adminLoginCard">
+          <h2 class="service-section-title">Acces administrateur</h2>
+          <p class="service-section-copy">
+            Entrez le code admin pour ouvrir le tableau de bord TERANGA.
+          </p>
+
+          <form class="service-form" id="adminAccessForm">
+            <label>
+              <span>Code admin</span>
+              <input id="adminCodeInput" type="password" placeholder="Exemple: TERANGA2026" required />
+            </label>
+            <div class="admin-actions-row">
+              <button class="search-button admin-button" type="submit">Ouvrir le dashboard</button>
+            </div>
+            <p class="service-feedback" id="adminAccessFeedback" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="admin-dashboard" id="adminDashboard" hidden>
+          <div class="admin-stats" id="adminStats">
+            <article class="admin-stat-card">
+              <span>Appartements actifs</span>
+              <strong id="statListings">0</strong>
+            </article>
+            <article class="admin-stat-card">
+              <span>Demandes Visa</span>
+              <strong id="statVisa">0</strong>
+            </article>
+            <article class="admin-stat-card">
+              <span>Demandes Billets</span>
+              <strong id="statFlights">0</strong>
+            </article>
+            <article class="admin-stat-card">
+              <span>Commandes Plats</span>
+              <strong id="statFood">0</strong>
+            </article>
+          </div>
+
+          <section class="service-layout admin-sections">
+            <div class="service-form-card">
+              <h2 class="service-section-title">Ajouter ou modifier un appartement</h2>
+              <p class="service-section-copy">
+                Remplissez les informations manuellement, chargez l'image et enregistrez
+                l'offre pour qu'elle apparaisse sur l'accueil.
+              </p>
+
+              <form class="service-form admin-form" id="listingForm">
+                <input id="listingIdInput" type="hidden" />
+
+                <div class="service-form-grid admin-form-grid">
+                  <label>
+                    <span>Titre FR</span>
+                    <input id="titleFrInput" type="text" required />
+                  </label>
+
+                  <label>
+                    <span>Titre EN</span>
+                    <input id="titleEnInput" type="text" required />
+                  </label>
+
+                  <label>
+                    <span>Quartier</span>
+                    <input id="neighborhoodInput" type="text" placeholder="Exemple: Dubai Marina" required />
+                  </label>
+
+                  <label>
+                    <span>Prix mensuel (AED)</span>
+                    <input id="monthlyInput" type="number" min="0" required />
+                  </label>
+
+                  <label>
+                    <span>Prix annuel (AED)</span>
+                    <input id="annualInput" type="number" min="0" />
+                  </label>
+
+                  <label>
+                    <span>Note</span>
+                    <input id="ratingInput" type="number" min="1" max="5" step="0.01" value="4.90" />
+                  </label>
+
+                  <label>
+                    <span>Chambres</span>
+                    <input id="bedroomsInput" type="number" min="0" value="1" required />
+                  </label>
+
+                  <label>
+                    <span>Salles d'eau</span>
+                    <input id="bathroomsInput" type="number" min="1" value="1" required />
+                  </label>
+
+                  <label>
+                    <span>Surface (m2)</span>
+                    <input id="sizeInput" type="number" min="0" value="50" />
+                  </label>
+
+                  <label>
+                    <span>Capacite</span>
+                    <input id="capacityInput" type="number" min="1" value="2" required />
+                  </label>
+
+                  <label>
+                    <span>URL image</span>
+                    <input id="imageUrlInput" type="url" placeholder="https://..." />
+                  </label>
+
+                  <label class="upload-field">
+                    <span>Image a telecharger</span>
+                    <input id="imageFileInput" type="file" accept=".jpg,.jpeg,.png,.webp" />
+                    <small class="upload-note" id="imageFileSummary">Aucun fichier selectionne</small>
+                  </label>
+                </div>
+
+                <label>
+                  <span>Description FR</span>
+                  <textarea id="descriptionFrInput"></textarea>
+                </label>
+
+                <label>
+                  <span>Description EN</span>
+                  <textarea id="descriptionEnInput"></textarea>
+                </label>
+
+                <fieldset class="admin-fieldset">
+                  <legend>Equipements</legend>
+                  <div class="admin-checkbox-grid">
+                    <label class="admin-checkbox">
+                      <input data-amenity value="pool" type="checkbox" />
+                      <span>Piscine</span>
+                    </label>
+                    <label class="admin-checkbox">
+                      <input data-amenity value="kitchen" type="checkbox" />
+                      <span>Cuisine</span>
+                    </label>
+                    <label class="admin-checkbox">
+                      <input data-amenity value="gym" type="checkbox" />
+                      <span>Gym</span>
+                    </label>
+                    <label class="admin-checkbox">
+                      <input data-amenity value="pets" type="checkbox" />
+                      <span>Animaux acceptes</span>
+                    </label>
+                    <label class="admin-checkbox">
+                      <input data-amenity value="balcony" type="checkbox" />
+                      <span>Balcon</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <label class="admin-checkbox admin-checkbox-inline">
+                  <input id="activeInput" type="checkbox" checked />
+                  <span>Appartement actif sur le site</span>
+                </label>
+
+                <div class="admin-actions-row">
+                  <button class="search-button admin-button" type="submit">Enregistrer l'appartement</button>
+                  <button class="admin-button-secondary" id="resetListingButton" type="button">Nouveau formulaire</button>
+                </div>
+
+                <p class="service-feedback" id="listingFeedback" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <div class="service-info-card">
+              <h2 class="service-section-title">Appartements disponibles</h2>
+              <p class="service-section-copy">
+                Vous pouvez modifier, desactiver ou supprimer chaque annonce.
+              </p>
+              <div class="admin-list" id="listingAdminList"></div>
+            </div>
+          </section>
+
+          <section class="service-form-card admin-request-section">
+            <div class="admin-request-head">
+              <div>
+                <h2 class="service-section-title">Demandes recues</h2>
+                <p class="service-section-copy">
+                  Visa, billets et commandes s'affichent ici des qu'un formulaire est soumis.
+                </p>
+              </div>
+              <div class="admin-filter-row" id="requestFilterRow">
+                <button class="admin-filter-button is-active" type="button" data-filter="all">Tout</button>
+                <button class="admin-filter-button" type="button" data-filter="visa">Visa</button>
+                <button class="admin-filter-button" type="button" data-filter="flight">Billets</button>
+                <button class="admin-filter-button" type="button" data-filter="food">Plats</button>
+              </div>
+            </div>
+
+            <div class="admin-list" id="requestList"></div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="footer mini-footer">
+        <p class="eyebrow">Contacts TERANGA</p>
+        <h2>Contacts visibles pour l'equipe</h2>
+        <div class="footer-actions">
+          <a class="footer-pill" href="mailto:contact@teranga.ae">contact@teranga.ae</a>
+          <a class="footer-pill" href="tel:+971528876133">+971 52 887 6133</a>
+          <a class="footer-pill" href="tel:+221781000577">+221 78 100 05 77</a>
+        </div>
+      </footer>
+
+      <script src="./teranga-store.js"></script>
+      <script src="./admin.js"></script>
+    </div>
+  </body>
+</html>
