@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Demandez votre visa Dubai avec TERANGA: passeport, photo, paiement Wave 80.000 FCFA et reponse en 48h."
+    />
+    <title>TERANGA | Visa Dubai en ligne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="TERANGA">
+          <img class="brand-logo" src="./assets/logo-teranga.jpeg" alt="Logo TERANGA" />
+          <div class="brand-copy">
+            <strong>TERANGA</strong>
+            <small>Visa Dubai en ligne</small>
+          </div>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menuPanel"
+          aria-label="Ouvrir le menu"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7H20"></path>
+            <path d="M4 12H20"></path>
+            <path d="M4 17H20"></path>
+          </svg>
+        </button>
+      </header>
+
+      <div class="menu-panel" id="menuPanel" hidden>
+        <nav class="menu-links" aria-label="Navigation">
+          <a href="./index.html">Accueil</a>
+          <a href="./visa.html">Visa Dubai</a>
+          <a href="./billets.html">Billets d'avion</a>
+          <a href="./plats.html">Plats senegalais</a>
+        </nav>
+
+        <div class="menu-meta">
+          <a class="menu-contact" href="mailto:contact@teranga.ae">contact@teranga.ae</a>
+          <a class="menu-contact" href="tel:+971543338520">+971 54 333 8520</a>
+        </div>
+      </div>
+
+      <main class="service-page">
+        <section class="service-hero">
+          <p class="eyebrow">Visa TERANGA</p>
+          <h1>Obtenez votre visa Dubai avec une demande simple et rapide.</h1>
+          <p>
+            Avec TERANGA, vous pouvez preparer votre dossier en ligne, payer via Wave
+            et recevoir votre visa par email ou WhatsApp sous 48h apres validation.
+          </p>
+
+          <div class="service-badges">
+            <span>80.000 FCFA</span>
+            <span>Paiement Wave</span>
+            <span>Reponse en 48h</span>
+          </div>
+        </section>
+
+        <section class="service-layout">
+          <div class="service-content">
+            <h2 class="service-section-title">Comment ca marche</h2>
+            <p class="service-section-copy">
+              Nous avons pense cette page pour rendre la demande de visa plus claire
+              pour les Senegalais et la diaspora africaine qui veulent arriver vite a Dubai.
+            </p>
+
+            <div class="process-grid">
+              <article class="process-step">
+                <strong>1</strong>
+                <h3>Chargez votre dossier</h3>
+                <p class="service-section-copy">
+                  Ajoutez une copie de votre passeport et votre photo d'identite.
+                </p>
+              </article>
+
+              <article class="process-step">
+                <strong>2</strong>
+                <h3>Paiement Wave</h3>
+                <p class="service-section-copy">
+                  Renseignez votre numero Wave et la reference de paiement de 80.000 FCFA.
+                </p>
+              </article>
+
+              <article class="process-step">
+                <strong>3</strong>
+                <h3>Reception du visa</h3>
+                <p class="service-section-copy">
+                  Notre equipe finalise le dossier puis vous envoie votre visa sous 48h.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <aside class="service-info-card">
+            <h2 class="service-section-title">Informations utiles</h2>
+            <div class="price-strip">
+              <span class="is-accent">Montant: 80.000 FCFA</span>
+              <span>Canal: Wave</span>
+              <span>Delai: 48h</span>
+            </div>
+
+            <div class="feature-list">
+              <span>Passeport obligatoire</span>
+              <span>Photo fond clair</span>
+              <span>Envoi email ou WhatsApp</span>
+            </div>
+          </aside>
+        </section>
+
+        <section class="service-layout">
+          <div class="service-form-card">
+            <h2 class="service-section-title">Demande de visa Dubai</h2>
+            <p class="service-section-copy">
+              Remplissez le formulaire puis finalisez la conversation sur WhatsApp pour
+              joindre facilement vos pieces si besoin.
+            </p>
+
+            <form
+              class="service-form"
+              data-service-form
+              data-whatsapp-intro="Bonjour TERANGA, je souhaite demander un visa Dubai."
+              data-success="Votre demande visa est prete. WhatsApp va s'ouvrir pour finaliser l'envoi."
+            >
+              <div class="service-form-grid">
+                <label>
+                  <span>Nom complet</span>
+                  <input data-label="Nom complet" name="full_name" type="text" required />
+                </label>
+
+                <label>
+                  <span>Nationalite</span>
+                  <input data-label="Nationalite" name="nationality" type="text" required />
+                </label>
+
+                <label>
+                  <span>Email</span>
+                  <input data-label="Email" name="email" type="email" required />
+                </label>
+
+                <label>
+                  <span>WhatsApp</span>
+                  <input data-label="WhatsApp" name="whatsapp" type="tel" required />
+                </label>
+
+                <label>
+                  <span>Numero de passeport</span>
+                  <input data-label="Numero de passeport" name="passport_number" type="text" required />
+                </label>
+
+                <label>
+                  <span>Date d'arrivee prevue</span>
+                  <input data-label="Date d'arrivee prevue" name="arrival_date" type="date" required />
+                </label>
+
+                <label>
+                  <span>Date de retour prevue</span>
+                  <input data-label="Date de retour prevue" name="return_date" type="date" required />
+                </label>
+
+                <label>
+                  <span>Numero Wave</span>
+                  <input data-label="Numero Wave" name="wave_phone" type="tel" required />
+                </label>
+
+                <label>
+                  <span>Reference de paiement Wave</span>
+                  <input data-label="Reference de paiement Wave" name="wave_reference" type="text" required />
+                </label>
+              </div>
+
+              <label class="upload-field">
+                <span>Passeport</span>
+                <input data-label="Passeport" data-file-input name="passport_file" type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                <small class="upload-note" data-file-summary="passport_file">Aucun fichier selectionne</small>
+              </label>
+
+              <label class="upload-field">
+                <span>Photo d'identite</span>
+                <input data-label="Photo d'identite" data-file-input name="photo_file" type="file" accept=".jpg,.jpeg,.png" required />
+                <small class="upload-note" data-file-summary="photo_file">Aucun fichier selectionne</small>
+              </label>
+
+              <label>
+                <span>Commentaire utile</span>
+                <textarea data-label="Commentaire utile" name="notes" placeholder="Exemple: visa touristique, voyage en famille, besoin rapide..."></textarea>
+              </label>
+
+              <button class="search-button" type="submit">Envoyer ma demande visa</button>
+              <p class="service-feedback" data-form-feedback aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="proposal-grid">
+            <article class="proposal-card">
+              <h3>Visa touristique 30 jours</h3>
+              <p>Ideal pour un premier sejour, une visite familiale ou une prospection logement.</p>
+            </article>
+            <article class="proposal-card">
+              <h3>Suivi humain TERANGA</h3>
+              <p>Une equipe francophone qui suit votre dossier et vous repond sur WhatsApp.</p>
+            </article>
+            <article class="proposal-card">
+              <h3>Apres le visa</h3>
+              <p>Nous pouvons ensuite vous aider sur le logement, l'aeroport et l'installation a Dubai.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer mini-footer">
+        <p class="eyebrow">Contact TERANGA</p>
+        <h2>Besoin d'un accompagnement direct ?</h2>
+        <p class="footer-copy">
+          Si vous preferez, vous pouvez aussi envoyer votre demande de visa directement
+          a notre equipe via WhatsApp.
+        </p>
+        <div class="footer-actions">
+          <a class="footer-pill" href="mailto:contact@teranga.ae">contact@teranga.ae</a>
+          <a class="footer-pill" href="tel:+971543338520">+971 54 333 8520</a>
+          <a
+            class="footer-cta"
+            href="https://wa.me/971543338520?text=Bonjour%20TERANGA%2C%20je%20veux%20demander%20un%20visa%20Dubai."
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </footer>
+
+      <a
+        class="floating-whatsapp"
+        href="https://wa.me/971543338520?text=Bonjour%20TERANGA%2C%20je%20veux%20demander%20un%20visa%20Dubai."
+        target="_blank"
+        rel="noreferrer"
+        aria-label="WhatsApp TERANGA"
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path
+            d="M27.4 4.6C24.4 1.7 20.5 0 16.3 0C7.3 0 0 7.3 0 16.2C0 19.1 0.8 21.9 2.3 24.4L0 32L7.8 29.8C10.2 31.1 13 31.9 15.9 31.9H16C24.9 31.9 32.2 24.7 32.2 15.7C32.1 11.5 30.4 7.6 27.4 4.6ZM16 29.2H15.9C13.4 29.2 11 28.6 8.9 27.3L8.4 27L3.8 28.3L5.1 23.8L4.8 23.3C3.4 21.1 2.7 18.6 2.7 16.1C2.7 8.7 8.7 2.7 16.1 2.7C19.7 2.7 23 4.1 25.5 6.6C27.9 9.1 29.3 12.4 29.3 16C29.3 23.3 23.3 29.2 16 29.2ZM23.3 19.1C22.9 18.9 20.8 17.9 20.5 17.8C20.2 17.7 19.9 17.6 19.7 17.9C19.4 18.3 18.7 19.1 18.5 19.3C18.3 19.5 18.1 19.6 17.7 19.4C15.5 18.3 14 17.4 12.3 15.4C11.9 15 11.9 14.7 12.2 14.4C12.4 14.2 12.6 13.9 12.8 13.7C12.9 13.5 13 13.3 13.1 13.1C13.2 12.9 13.1 12.6 13 12.4C12.9 12.3 12 10.2 11.7 9.4C11.4 8.6 11.1 8.7 10.9 8.7H10.2C9.9 8.7 9.5 8.8 9.2 9.2C8.9 9.6 8.1 10.4 8.1 12C8.1 13.6 9.3 15.1 9.5 15.4C9.8 15.7 12.7 20.1 17.1 22C18.1 22.4 18.9 22.7 19.6 22.9C20.6 23.2 21.4 23.2 22 23.1C22.7 23 24.1 22.1 24.4 21.3C24.8 20.5 24.8 19.7 24.7 19.5C24.5 19.4 24 19.3 23.3 19.1Z"
+          ></path>
+        </svg>
+      </a>
+
+      <script src="./service-pages.js"></script>
+    </div>
+  </body>
+</html>

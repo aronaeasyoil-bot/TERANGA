@@ -6,6 +6,9 @@ const translations = {
     menu_home: "Accueil",
     menu_apartments: "Appartements",
     menu_services: "Services",
+    menu_visa: "Visa Dubai",
+    menu_flights: "Billets d'avion",
+    menu_food: "Plats senegalais",
     menu_contact: "Contact",
     hero_eyebrow: "Selection privee a Dubai",
     hero_title: "Trouvez votre appartement a louer a Dubai.",
@@ -27,17 +30,19 @@ const translations = {
       "Des annonces simples, claires et toutes presentees dans le meme format.",
     summary_all: "{count} appartements disponibles a Dubai.",
     summary_filtered: "{count} appartements disponibles pour {location} et {guests} occupant(s).",
-    services_eyebrow: "Services TERANGA",
-    services_title: "On vous aide aussi a bien vous installer.",
-    service_1_title: "Selection d'appartements",
+    services_eyebrow: "TERANGA Plus",
+    services_title: "Des pages utiles pour tout gerer depuis Dubai.",
+    services_text:
+      "Visa express, demande de billet Senegal-Dubai et commande de plats senegalais depuis une seule plateforme.",
+    service_1_title: "Visa Dubai en ligne",
     service_1_text:
-      "Nous preparons une selection adaptee a votre budget, votre quartier prefere et votre date d'arrivee.",
-    service_2_title: "Visite et reservation",
+      "Telechargez votre passeport, votre photo, payez 80.000 FCFA via Wave et recevez votre visa en 48h.",
+    service_2_title: "Billet Senegal - Dubai",
     service_2_text:
-      "Notre equipe centralise les echanges, la disponibilite et la reservation de votre appartement.",
-    service_3_title: "Assistance installation",
+      "Indiquez vos dates de depart et de retour pour recevoir rapidement les meilleures propositions.",
+    service_3_title: "Cuisine senegalaise a Dubai",
     service_3_text:
-      "Visa, relocation, aeroport ou mise en relation utile pour bien commencer votre vie a Dubai.",
+      "Commandez Thiebou Dieune, Mafee, Thiebou Yape, Dibi Senegal et plus encore avec TERANGA.",
     contact_eyebrow: "Contact TERANGA",
     contact_title: "Recevez une proposition rapide et claire.",
     contact_text:
@@ -50,10 +55,11 @@ const translations = {
     fact_bathrooms: "salle(s) d'eau",
     fact_size: "m2",
     fact_capacity: "occupants",
-    details_label: "Disponibilite verifiee",
+    details_label: "Disponible via TERANGA",
     empty_title: "Aucun appartement ne correspond a votre recherche.",
     empty_text: "Essayez un autre quartier ou retirez un filtre d'equipement.",
-    all_locations: "Any location",
+    all_locations: "Tout Dubai",
+    dubai_city: "Dubai",
     whatsapp_intro: "Bonjour TERANGA, je souhaite recevoir plus d'informations sur",
     whatsapp_suffix: "Merci.",
   },
@@ -64,6 +70,9 @@ const translations = {
     menu_home: "Home",
     menu_apartments: "Apartments",
     menu_services: "Services",
+    menu_visa: "Dubai visa",
+    menu_flights: "Flights",
+    menu_food: "Senegalese food",
     menu_contact: "Contact",
     hero_eyebrow: "Private selection in Dubai",
     hero_title: "Find your apartment for rent in Dubai.",
@@ -85,17 +94,19 @@ const translations = {
       "Simple, clear listings, all presented in the same format.",
     summary_all: "{count} apartments available in Dubai.",
     summary_filtered: "{count} apartments available for {location} and {guests} guest(s).",
-    services_eyebrow: "TERANGA services",
-    services_title: "We also help you settle in properly.",
-    service_1_title: "Apartment curation",
+    services_eyebrow: "TERANGA Plus",
+    services_title: "Useful pages to manage more from Dubai.",
+    services_text:
+      "Express visa, Senegal-Dubai flight request and Senegalese food ordering from one platform.",
+    service_1_title: "Online Dubai visa",
     service_1_text:
-      "We prepare a shortlist based on your budget, preferred neighborhood and move-in date.",
-    service_2_title: "Visits and reservation",
+      "Upload your passport, photo, pay 80,000 FCFA with Wave and receive your visa within 48h.",
+    service_2_title: "Senegal - Dubai flight",
     service_2_text:
-      "Our team coordinates communication, availability and reservation for your apartment.",
-    service_3_title: "Move-in support",
+      "Share your departure and return dates to receive the best options quickly.",
+    service_3_title: "Senegalese food in Dubai",
     service_3_text:
-      "Visa, relocation, airport pickup or useful introductions to start your Dubai life smoothly.",
+      "Order Thiebou Dieune, Mafee, Thiebou Yape, Dibi Senegal and more with TERANGA.",
     contact_eyebrow: "Contact TERANGA",
     contact_title: "Receive a fast and clear proposal.",
     contact_text:
@@ -108,10 +119,11 @@ const translations = {
     fact_bathrooms: "bathroom(s)",
     fact_size: "sqm",
     fact_capacity: "guests",
-    details_label: "Verified availability",
+    details_label: "Available via TERANGA",
     empty_title: "No apartment matches your search.",
     empty_text: "Try another neighborhood or remove an amenity filter.",
     all_locations: "Any location",
+    dubai_city: "Dubai",
     whatsapp_intro: "Hello TERANGA, I would like more information about",
     whatsapp_suffix: "Thank you.",
   },
@@ -515,10 +527,6 @@ function renderListings() {
         `${getBedroomLabel(listing.bedrooms)} ${t("fact_bedrooms")}`,
         `${listing.bathrooms} ${t("fact_bathrooms")}`,
       ].join(" • ");
-      const amenityChips = listing.amenities
-        .slice(0, 3)
-        .map((amenity) => `<span class="meta-pill">${getAmenityLabel(amenity)}</span>`)
-        .join("");
       const ratingText = replaceTokens(t("listing_badge"), {
         rating: formatRating(listing.rating),
       });
@@ -537,12 +545,9 @@ function renderListings() {
 
           <div class="listing-body">
             <h3>${listing.title[state.lang]}</h3>
+            <p class="listing-location-line">${listing.neighborhood}, ${t("dubai_city")}</p>
             <p class="listing-summary">${metaSummary}</p>
             <p class="listing-price-line">${formatAed(listing.monthly)} ${t("listing_month")}</p>
-
-            <div class="listing-meta">
-              ${amenityChips}
-            </div>
 
             <div class="listing-actions">
               <span class="listing-secondary">${t("details_label")}</span>
