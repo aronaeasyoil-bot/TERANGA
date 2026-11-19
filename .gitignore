@@ -4,3 +4,7 @@ server.out.log
 .vercel
 .cloudflare/
 dist/
+node_modules/
+.dev.vars*
+.env*
+*.sqlite*

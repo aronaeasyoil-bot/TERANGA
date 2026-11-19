@@ -1,0 +1,17 @@
+{
+  "name": "teranga-dubai", "private": true, "type": "module",
+  "scripts": {
+    "assets": "node platform/build.mjs",
+    "build": "npm run assets && cf build",
+    "test": "node --test",
+    "test:staging": "node platform/staging-smoke.mjs",
+    "preview:local": "npm run assets && node platform/local.mjs",
+    "deploy:staging": "npm run build && node platform/guard-staging.mjs && cf deploy --prebuilt --mode production"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "2.0.0-rc.2",
+    "cf": "1.0.0-rc.1",
+    "playwright": "1.65.1",
+    "vite": "8.3.8"
+  }
+}
