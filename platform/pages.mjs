@@ -1,10 +1,22 @@
 import { brand, catalog, choices, labels, packages, tr, whatsapp } from "./catalog.mjs";
+import { photos, servicePhotos, packagePhotos, originalWidths } from "./photos.mjs";
 
 const esc = (value) => String(value).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);
 const url = (lang, page = "") => (lang === "en" ? "/en/" : "/") + page;
 const copy = (lang, record, i) => record[lang === "en" ? i+1 : i];
 const name = (lang, service) => copy(lang,catalog[service],1);
 const waLink = (lang, cls, label, title = "") => `<a class="${cls}" href="${esc(whatsapp(lang,title))}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+function picture(lang, key, {hero = false, decorative = false, card = false} = {}) {
+  const image = photos[key];
+  const file = "/assets/travel/" + key + ".webp";
+  const sizes = hero ? "100vw" : card ? "(max-width:660px) 47vw, (max-width:1300px) 30vw, 420px" : "(max-width:660px) calc(100vw - 30px), 45vw";
+  const variant = `srcset="/assets/travel/${key}-small.webp ${hero?840:400}w, ${file} ${originalWidths[key]||1000}w" sizes="${sizes}"`;
+  const priority = hero ? 'width="1920" height="1278" fetchpriority="high"' : 'width="960" height="640" loading="lazy" decoding="async"';
+  return `<img src="${file}" class="travel-photo photo--${key}${hero?" hero-panorama":""}" alt="${decorative?"":esc(image[lang])}" ${variant} ${priority}>`;
+}
+function photoFrame(lang,key,cls="",decorative=false) {
+  return `<div class="photo-frame ${cls}">${picture(lang,key,{decorative,card:cls==="card-media"})}</div>`;
+}
 const icons = {
   hotels:"M3 21V4h13v17M16 9h5v12M7 8h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1M2 21h21",
   apartments:"m2 11 10-8 10 8M5 10v11h14V10M9 21v-7h6v7",
@@ -41,7 +53,7 @@ function footer(lang) {
   return `<footer class="travel-footer"><div class="wrap footer-columns">
     <div><strong>${brand.name}</strong><p>${brand.signature}</p>${waLink(lang,"footer-link",brand.phone)}</div>
     <div><strong>${tr(lang,"Préparer votre séjour","Plan your stay")}</strong><a href="${url(lang,"guides")}">${tr(lang,"Guides pratiques","Travel guides")}</a><a href="${url(lang,"dossier")}">${tr(lang,"Suivre mon dossier","Track my request")}</a></div>
-    <div><strong>${tr(lang,"Informations","Information")}</strong><a href="${url(lang,"conditions")}">${tr(lang,"Conditions de demande","Request terms")}</a><a href="${url(lang,"confidentialite")}">${tr(lang,"Confidentialité","Privacy")}</a><a href="${url(lang,"contact")}">Contact</a></div>
+    <div><strong>${tr(lang,"Informations","Information")}</strong><a href="${url(lang,"conditions")}">${tr(lang,"Conditions de demande","Request terms")}</a><a href="${url(lang,"confidentialite")}">${tr(lang,"Confidentialité","Privacy")}</a><a href="${url(lang,"contact")}">Contact</a><a href="${url(lang,"photos")}">${tr(lang,"Crédits photos","Photo credits")}</a></div>
   </div><div class="wrap footer-end">© ${brand.name} <span>${tr(lang,"Conciergerie humaine · Sur devis · AED","Human concierge · On request · AED")}</span></div></footer>
   ${waLink(lang,"wa-float",`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a9 9 0 0 1-13.6 7.9L3 21l1.5-4.5A9 9 0 1 1 21 11.5Z"/><path d="M9 8c.3 3 2 4.7 5 6l1-1c1 .2 2 .9 2 1.4s-.7 1.6-1.6 1.6C12 16 8 13 8 9c0-1 .5-1.5 1-1.5Z"/></svg><span>WhatsApp</span>`)}`;
 }
@@ -55,22 +67,48 @@ function fields(lang,key) {
   const type = ["arrival","departure"].includes(key) ? 'type="date"' : key==="time" ? 'type="time"' : ["people","bedrooms","bags","budget","weight"].includes(key) ? `type="number" min="${["bedrooms","bags"].includes(key)?0:1}" step="${["budget","weight"].includes(key)?"0.01":"1"}"` : 'type="text" maxlength="160"';
   return `<label>${label}<input name="${key}" ${type}${required}></label>`;
 }
-const packageCards = (lang) => `<div class="package-grid">${packages.map(([title,fr,en,excFr,excEn],i)=>`<article class="package-card"><p class="kicker">0${i+1} / ${tr(lang,"Sur devis","On request")}</p><h3>${title}</h3><p>${tr(lang,fr,en)}</p><p class="muted">${tr(lang,excFr,excEn)} ${tr(lang,"Durée et conditions à convenir.","Duration and terms to be agreed.")}</p><a href="${url(lang,"forfaits")}?package=${i}#demande">${tr(lang,"Demander ce forfait","Request this package")} →</a></article>`).join("")}</div>`;
+const packageCards = (lang) => `<div class="package-grid">${packages.map(([title,fr,en,excFr,excEn],i)=>`<article class="package-card photo-package">
+  ${photoFrame(lang,packagePhotos[i])}<div class="package-copy"><p class="kicker">0${i+1} / ${tr(lang,"Sur devis","On request")}</p><h3>${title}</h3><p>${tr(lang,fr,en)}</p><p class="muted">${tr(lang,excFr,excEn)} ${tr(lang,"Durée et conditions à convenir.","Duration and terms to be agreed.")}</p><a href="${url(lang,"forfaits")}?package=${i}#demande">${tr(lang,"Demander ce forfait","Request this package")} →</a></div></article>`).join("")}</div>`;
+function serviceCard(lang,key) {
+  return `<a class="travel-card photo-card" href="${url(lang,key)}">${photoFrame(lang,servicePhotos[key],"card-media",true)}
+    <div class="card-caption"><span class="card-icon">${icon(key)}</span><div><h3>${name(lang,key)}</h3><p>${copy(lang,catalog[key],5)}</p></div><span class="card-arrow" aria-hidden="true">↗</span></div></a>`;
+}
+function howItWorks(lang) {
+  const steps = [
+    ["Dites-nous votre besoin","Tell us what you need","Sélectionnez un service et recevez une référence de dossier.","Select a service and receive a request reference."],
+    ["Consultez le devis","Review the quote","L’équipe vérifie les options avant de proposer des conditions et un tarif.","Our team checks the options before offering terms and a price."],
+    ["Suivez votre dossier","Follow your request","Acceptez le devis, puis attendez la confirmation de l’opérateur.","Accept the quote, then wait for the operator’s confirmation."],
+  ];
+  return `<section class="travel-section home-story"><div class="wrap editorial-split">
+    <figure class="editorial-photo">${photoFrame(lang,"support")}<figcaption>${tr(lang,"Votre voyage, vos priorités.","Your trip, your priorities.")}</figcaption></figure>
+    <div><p class="kicker">${tr(lang,"03 / L’ACCOMPAGNEMENT","03 / HERE TO HELP")}</p><h2>${tr(lang,"Comment ça marche ?","How does it work?")}</h2>
+    <p class="section-intro">${tr(lang,"De Dakar à Dubaï, organisez votre séjour avec un accompagnement en français ou en anglais.","From Dakar to Dubai, plan your stay with support in French or English.")}</p>
+    <ol class="story-steps">${steps.map((step,i)=>`<li><b aria-hidden="true">0${i+1}</b><div><h3>${copy(lang,step,0)}</h3><p>${copy(lang,step,2)}</p></div></li>`).join("")}</ol></div>
+  </div></section>`;
+}
+function homeFaq(lang) {
+  return `<section class="travel-section tint home-faq"><div class="wrap editorial-split">
+    <div><p class="kicker">04 / FAQ</p><h2>${tr(lang,"Avant de partir.","Before you go.")}</h2>${faq(lang)}</div>
+    <aside class="faq-travel-card"><figure>${photoFrame(lang,"faq")}</figure><div><p class="kicker">${tr(lang,"L’ESSENTIEL EN UN COUP D’ŒIL","THE ESSENTIALS AT A GLANCE")}</p>
+      <h3>${tr(lang,"Les guides pour préparer Dubaï","Guides to planning Dubai")}</h3><a href="${url(lang,"guides")}">${tr(lang,"Lire nos conseils","Read our tips")} →</a></div></aside>
+  </div></section>`;
+}
 function home(lang) {
   const services = Object.keys(catalog);
-  return `<section class="travel-hero"><img class="hero-panorama" src="/assets/dubai-panorama.webp" width="2200" height="560" alt="" fetchpriority="high"><div class="wrap hero-inner">
+  return `<section class="travel-hero">${picture(lang,"skyline",{hero:true})}<div class="wrap hero-inner">
   <div class="hero-textblock"><p class="hero-kicker"><span></span> ${tr(lang,"DUBAÏ · ÉMIRATS ARABES UNIS","DUBAI · UNITED ARAB EMIRATES")}</p><h1>Welcome to<br><em>TERANGA DUBAI.</em></h1><p class="hero-signature">${brand.signature}</p><p class="hero-description">${tr(lang,"Réservez votre hébergement, organisez vos déplacements, vos achats et votre séjour à Dubaï avec un accompagnement personnalisé.","Book a place to stay, arrange transport and shopping, and plan your time in Dubai with personalised support.")}</p>
   <div class="button-row"><a class="travel-btn" href="#explorer">${tr(lang,"Explorer les services","Explore services")} ↗</a><a class="hero-contact" href="${url(lang,"hotels")}#demande">${tr(lang,"Réserver un séjour","Plan a stay")}</a>${waLink(lang,"hero-contact",tr(lang,"Contacter l’équipe","Contact the team"))}</div></div></div>
-  <small class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Panorama_of_Dubai.jpg">Milkaselnuss</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · WebP / ${tr(lang,"redimensionné","resized")}</small></section>
-  <div class="wrap search-wrap"><section class="travel-search"><p class="kicker">${tr(lang,"DONNEZ FORME À VOTRE SÉJOUR","SHAPE YOUR STAY")}</p><h2>${tr(lang,"Que souhaitez-vous organiser ?","What would you like to plan?")}</h2>
+  <small class="photo-credit"><a href="${url(lang,"photos")}">Dubaï · Irshad Ahmad / Pexels</a></small></section>
+  <div class="wrap search-wrap"><section class="travel-search"><div class="search-copy"><p class="kicker">${tr(lang,"DONNEZ FORME À VOTRE SÉJOUR","SHAPE YOUR STAY")}</p><h2>${tr(lang,"Que souhaitez-vous organiser ?","What would you like to plan?")}</h2>
   <div class="search-tabs" role="group" aria-label="${tr(lang,"Choisir un service","Choose a service")}">${services.filter(k=>k!=="forfaits").map((k,i)=>`<button type="button" data-tab="${k}" aria-pressed="${i===0}">${icon(k)} ${name(lang,k)}</button>`).join("")}</div>
   <form action="${url(lang,"hotels")}#demande" class="quick-form" id="tripSearch">${fields(lang,"arrival")}${fields(lang,"people")}${fields(lang,"area")}<button class="travel-btn">${tr(lang,"Préparer ma demande","Plan my request")} →</button></form>
   <template id="tab-fields">${services.map(k=>`<div data-fields="${k}">${catalog[k][7].slice(0,3).map(f=>fields(lang,f)).join("")}</div>`).join("")}</template>
-  <p class="search-note">${tr(lang,"Aucune réservation instantanée : l’équipe confirme chaque offre et ses conditions.","Not an instant booking: our team checks each offer and its terms.")}</p></section></div>
-  <div id="explorer">${section(lang,tr(lang,"01 / EXPLORER","01 / EXPLORE"),tr(lang,"Dubaï, à votre façon.","Dubai, your way."),tr(lang,"Du premier trajet aux derniers achats, composez le séjour qui vous ressemble.","From the first ride to your last purchase, build the trip that fits."),`<div class="travel-grid">${services.map(k=>`<a class="travel-card" href="${url(lang,k)}"><span class="card-top">${icon(k)} <small>${catalog[k][0]}</small></span><h3>${name(lang,k)}</h3><p>${copy(lang,catalog[k],5)}</p><span class="card-arrow" aria-hidden="true">↗</span></a>`).join("")}</div>`)}</div>
-  ${section(lang,tr(lang,"02 / NOS FORFAITS","02 / PACKAGES"),tr(lang,"Un séjour, trois façons de le vivre.","One trip, three ways to take it."),"",packageCards(lang),"tint")}
-  ${section(lang,tr(lang,"03 / ENSEMBLE","03 / TOGETHER"),tr(lang,"Un site pour préparer. Une équipe pour avancer.","Plan online. Move forward with a real team."),tr(lang,"De Dakar à Dubaï, organisez vos priorités en français ou en anglais. Une demande n’est ni un engagement de paiement ni une réservation confirmée.","From Dakar to Dubai, plan in French or English. A request is neither an obligation to pay nor a confirmed booking."),`<div class="steps"><article><b>01.</b><h3>${tr(lang,"Dites-nous votre besoin","Tell us what you need")}</h3><p>${tr(lang,"Sélectionnez un service et recevez une référence de dossier.","Select a service and receive a request reference.")}</p></article><article><b>02.</b><h3>${tr(lang,"Consultez le devis","Review the quote")}</h3><p>${tr(lang,"L’équipe vérifie les options avant de proposer des conditions et un tarif.","Our team checks options before offering terms and a price.")}</p></article><article><b>03.</b><h3>${tr(lang,"Suivez votre dossier","Follow your request")}</h3><p>${tr(lang,"Acceptez le devis et attendez la confirmation de l’opérateur.","Accept the quote and wait for the operator’s confirmation.")}</p></article></div>`)}
-  ${section(lang,"FAQ",tr(lang,"Avant de partir.","Before you go."),"",faq(lang),"tint")}`;
+  <p class="search-note">${tr(lang,"Aucune réservation instantanée : l’équipe confirme chaque offre et ses conditions.","Not an instant booking: our team checks each offer and its terms.")}</p></div>
+  <figure class="search-visual">${photoFrame(lang,"planner")}<figcaption>${tr(lang,"En route pour Dubaï","On your way to Dubai")}</figcaption></figure></section></div>
+  <div id="explorer">${section(lang,tr(lang,"01 / EXPLORER","01 / EXPLORE"),tr(lang,"Dubaï, à votre façon.","Dubai, your way."),tr(lang,"Du premier trajet aux derniers achats, composez le séjour qui vous ressemble.","From the first ride to your last purchase, build the trip that fits."),`<div class="travel-grid photo-catalog">${services.map(k=>serviceCard(lang,k)).join("")}</div><p class="visual-note">${tr(lang,"Photos d’illustration. Les offres et disponibilités sont confirmées par l’équipe.","Illustrative photography. Offers and availability are confirmed by the team.")} <a href="${url(lang,"photos")}">${tr(lang,"Voir les crédits","View photo credits")}</a></p>`,"home-explore")}</div>
+  ${section(lang,tr(lang,"02 / NOS FORFAITS","02 / PACKAGES"),tr(lang,"Un séjour, trois façons de le vivre.","One trip, three ways to take it."),tr(lang,"Hébergement, déplacements et accompagnement, réunis dans un seul devis.","Stays, transfers and support, brought together in a single quote."),packageCards(lang),"tint home-packages")}
+  ${howItWorks(lang)}
+  ${homeFaq(lang)}`;
 }
 function faq(lang) {
   return `<div class="faq">${[
@@ -82,7 +120,7 @@ function faq(lang) {
 }
 function servicePage(lang,key) {
   const service = catalog[key];
-  return `<section class="inner-hero"><div class="wrap"><p class="kicker">${icon(key)} ${copy(lang,service,5)}</p><h1>${name(lang,key)}</h1><p>${copy(lang,service,3)}</p><div class="button-row"><a href="#demande" class="travel-btn">${tr(lang,"Préparer une demande","Start a request")} →</a>${waLink(lang,"outline-btn","WhatsApp",name(lang,key))}</div></div></section>
+  return `<section class="inner-hero"><div class="wrap service-cover"><div><p class="kicker">${icon(key)} ${copy(lang,service,5)}</p><h1>${name(lang,key)}</h1><p>${copy(lang,service,3)}</p><div class="button-row"><a href="#demande" class="travel-btn">${tr(lang,"Préparer une demande","Start a request")} →</a>${waLink(lang,"outline-btn","WhatsApp",name(lang,key))}</div></div><figure>${photoFrame(lang,servicePhotos[key])}<figcaption><a href="${url(lang,"photos")}">${tr(lang,"Photo d’illustration","Illustrative photo")}</a></figcaption></figure></div></section>
   ${key==="forfaits" ? section(lang,tr(lang,"FORMAT","FORMAT"),tr(lang,"Choisir une formule.","Choose a package."),"",packageCards(lang)) : ""}
   <section class="travel-section"><div class="wrap"><p class="kicker">${tr(lang,"CATALOGUE","CATALOGUE")}</p><h2>${tr(lang,"Offres publiées","Published offers")}</h2><p class="section-intro">${tr(lang,"Seules les offres validées s’affichent. Disponibilité et prix final sur confirmation.","Only verified offers appear. Availability and final price are confirmed separately.")}</p>
   <div id="liveOffers" data-service="${key}" class="offer-grid" aria-live="polite"><p>${tr(lang,"Consultez les offres ou demandez une recherche personnalisée ci-dessous.","Browse offers or request a personalised search below.")}</p></div></div></section>
@@ -96,6 +134,7 @@ function servicePage(lang,key) {
 function extras(lang,page) {
   const t = (fr,en)=>tr(lang,fr,en);
   const wrap = (h,b)=>`<section class="travel-section"><div class="wrap text-page"><p class="kicker">${brand.name}</p><h1>${h}</h1>${b}</div></section>`;
+  if (page==="photos") return wrap(t("Crédits photos","Photo credits"),`<p>${t("Ces photos d’illustration ne représentent pas des offres, des partenaires ni des garanties de disponibilité. Elles ont été redimensionnées et converties en WebP.","These illustrative photographs do not represent offers, partners or guarantees of availability. They were resized and converted to WebP.")}</p><ul class="credits-list">${Object.values(photos).map(photo=>`<li><a href="${esc(photo.source)}">${esc(photo[lang])}</a> · <a href="${esc(photo.license)}">${esc(photo.label)}</a></li>`).join("")}</ul>`);
   if (page==="contact") return wrap("Contact",`<p>${t("Indiquez votre service, vos dates et votre budget. Si vous avez déjà un dossier, donnez sa référence publique, jamais sa clé privée.","Share the service, dates and budget. If you already have a request, share its public reference, never its private key.")}</p>${waLink(lang,"travel-btn",brand.phone)}<p><a href="${url(lang,"dossier")}">${t("Suivre ma demande","Track my request")} →</a></p>`);
   if (page==="guides") return wrap(t("Guides pour votre voyage","Guides for your trip"),guides.map(g=>`<article class="panel"><h2>${copy(lang,g,0)}</h2><p>${copy(lang,g,2)}</p></article>`).join("")+`<p><a href="https://www.visitdubai.com/">Visit Dubai</a> · <a href="https://www.dubaiairports.ae/">Dubai Airports</a></p>`);
   if (page==="conditions") return wrap(t("Conditions de demande","Request terms"),`<p>${t("Cette préproduction est réservée aux tests. Une demande ne donne ni droit à une prestation ni garantie de disponibilité ou de visa. Aucun paiement, frais ou remboursement n’est traité ici.","This staging site is for testing only. A request does not entitle you to a service or guarantee availability or a visa. No payments, charges or refunds are handled here.")}</p><p>${t("Les conditions finales d’annulation, taxes, responsabilités et éventuels remboursements doivent être confirmés par écrit par l’opérateur autorisé avant que vous vous engagiez.","Final cancellation terms, taxes, responsibilities and any refunds must be confirmed in writing by the authorised operator before you commit.")}</p>`);
@@ -108,6 +147,7 @@ function extras(lang,page) {
 const extra = {
   contact:["Contact","Contact"], guides:["Guides de voyage","Travel guides"], dossier:["Mon dossier","My request"],
   confidentialite:["Confidentialité","Privacy"], conditions:["Conditions","Terms"], admin:["Administration","Administration"],
+  photos:["Crédits photos","Photo credits"],
 };
 export const pages = ["",...Object.keys(catalog),...Object.keys(extra)];
 export function render(lang,page) {

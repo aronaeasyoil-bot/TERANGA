@@ -57,6 +57,29 @@ function formAction(form,output,action) {
 
 const menu = $("#openNav");
 const nav = $("#siteNav");
+const whatsappFloat = $(".wa-float");
+if (whatsappFloat && "IntersectionObserver" in window) {
+  const forms = [...document.querySelectorAll(".search-copy, #requestForm, #trackForm")];
+  let overlap;
+  // On mobile the floating contact must not intercept search or booking controls.
+  const reserveContactSpace = ()=>{
+    overlap?.disconnect();
+    whatsappFloat.classList.remove("is-over-form");
+    if (!forms.length || !matchMedia("(max-width:660px)").matches) return;
+    const covering = new Set();
+    const margin = `-${Math.max(0,innerHeight-76)}px 0px 0px -${Math.max(0,innerWidth-76)}px`;
+    overlap = new IntersectionObserver(entries=>{
+      for (const entry of entries) {
+        if (entry.isIntersecting) covering.add(entry.target);
+        else covering.delete(entry.target);
+      }
+      whatsappFloat.classList.toggle("is-over-form",covering.size>0);
+    },{rootMargin:margin});
+    forms.forEach(form=>overlap.observe(form));
+  };
+  reserveContactSpace();
+  window.addEventListener("resize",reserveContactSpace,{passive:true});
+}
 document.body.classList.add("js-nav");
 const setMenu = open=>{nav.classList.toggle("is-open",open); menu.setAttribute("aria-expanded",String(open));};
 menu.addEventListener("click",()=>setMenu(!nav.classList.contains("is-open")));

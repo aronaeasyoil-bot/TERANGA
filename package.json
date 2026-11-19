@@ -4,6 +4,7 @@
     "assets": "node platform/build.mjs",
     "build": "npm run assets && cf build",
     "test": "node --test",
+    "test:visual": "node platform/visual-smoke.mjs",
     "test:staging": "node platform/staging-smoke.mjs",
     "preview:local": "npm run assets && node platform/local.mjs",
     "deploy:staging": "npm run build && node platform/guard-staging.mjs && cf deploy --prebuilt --mode production"

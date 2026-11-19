@@ -1,12 +1,13 @@
 import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";
 import { pages, render } from "./pages.mjs";
+import { photoFiles } from "./photos.mjs";
 
 const root = new URL("../", import.meta.url);
 const out = new URL("dist/", root);
 const files = ["styles.css","platform/travel.css","platform/ui.mjs","platform/catalog.mjs",
-  "assets/logo-teranga-dubai.jpg","assets/teranga-icon.svg","assets/dubai-panorama.webp"];
+  "assets/logo-teranga-dubai.jpg","assets/teranga-icon.svg",...photoFiles];
 await rm(out,{recursive:true,force:true});
-for (const dir of ["assets/","platform/","en/"]) await mkdir(new URL(dir,out),{recursive:true});
+for (const dir of ["assets/travel/","platform/","en/"]) await mkdir(new URL(dir,out),{recursive:true});
 await Promise.all(files.map(file=>copyFile(new URL(file,root),new URL(file,out))));
 const sitemap = [];
 for (const lang of ["fr","en"]) {

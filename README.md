@@ -71,7 +71,15 @@ installed. Supply `ADMIN_PASSWORD` in the test process or use the private
 Windows staging secret in the current user's LocalAppData. No WhatsApp
 message, payment or operator request is sent by this test.
 
-Hero photo: [Panorama of Dubai](https://commons.wikimedia.org/wiki/File:Panorama_of_Dubai.jpg)
-by Milkaselnuss, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
-resized and converted to WebP under the same licence. The staging logo was
-supplied by the TERANGA team; final use is pending approval.
+Photo sources and licences are recorded in `platform/photos.mjs` and published
+on the bilingual Photo Credits page. The homepage skyline is by
+[Irshad Ahmad / Pexels](https://www.pexels.com/photo/stunning-evening-skyline-of-dubai-with-burj-khalifa-38518982/).
+[Thie Bou Djeun](https://commons.wikimedia.org/wiki/File:Thie_Bou_Djeun.jpg) is
+by Mayalabeil75, resized and converted to WebP under the same
+[CC BY-SA 4.0 licence](https://creativecommons.org/licenses/by-sa/4.0/).
+The images are editorial illustrations, not listing or partner images.
+The staging logo was supplied by the TERANGA team; final use is pending approval.
+
+`npm run test:visual` checks homepage photos, mobile layout, service covers
+and planner tabs in Chrome without submitting requests. Set `TERANGA_PREVIEW`
+to test the local preview instead of the staging hostname.
